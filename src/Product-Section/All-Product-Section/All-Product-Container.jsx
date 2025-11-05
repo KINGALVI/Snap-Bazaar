@@ -45,96 +45,101 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
         currency: 'USD',
     }).format(totalPrice);
 
+    API.length
+
     return (
-        <>
-            <br />
+        API.length === 0 ?
+            <> <center className='m-5 p-5'>Loding...</center> </>
+            :
+            <>
+                <br />
 
-            <section className="d-flex justify-content-center mb-3">
-                <span className="pe-2">
-                    <Button variant={activeSection === "available" ? "primary" : "outline-primary"} onClick={() => setActiveSection("available")}>
-                        {API.length} Available Product
-                    </Button>
-                </span>
+                <section className="d-flex justify-content-center mb-3">
+                    <span className="pe-2">
+                        <Button variant={activeSection === "available" ? "primary" : "outline-primary"} onClick={() => setActiveSection("available")}>
+                            {API.length} Available Product
+                        </Button>
+                    </span>
 
-                <span className="ps-2">
-                    <Button variant={activeSection === "selected" ? "success" : "outline-success"} onClick={() => setActiveSection("selected")}>
-                        {AllSelectedProduct.length} Selected Product
-                    </Button>
-                </span>
-            </section>
-
-            {activeSection === "available" ? (
-                <section>
-                    <center><h3>Total {API.length} Product is Available Rignt Now</h3></center>
-
-                    <Row className="g-0" xs={1} md={2}>
-                        {API.map((AllProduct, idx) => (
-                            <Col key={idx}>
-                                <All_Product_Card
-                                    key={idx}
-                                    AllProduct={AllProduct}
-                                    handelRemovecoin={handelRemovecoin}
-                                    handelSelectedProduct={handelSelectedProduct}
-                                    Coin={Coin}
-                                    handleRemoveProduct={handleRemoveProduct}
-                                />
-                            </Col>
-                        ))}
-                    </Row>
+                    <span className="ps-2">
+                        <Button variant={activeSection === "selected" ? "success" : "outline-success"} onClick={() => setActiveSection("selected")}>
+                            {AllSelectedProduct.length} Selected Product
+                        </Button>
+                    </span>
                 </section>
-            ) : (
-                <>
 
-                    {
-                        AllSelectedProduct.length === 0 ? (
-                            <>
-                                <br /><br />
-                                <center><h3>No Product is Selected</h3></center>
-                                <center className="p-5">
-                                    <h4>Please Select Your Favorite Product!</h4>
-                                </center>
-                            </>
-                        ) :
-                            (
-                                <center><h3>Total Selected Product is {AllSelectedProduct.length}</h3></center>
-                            )
-                    }
+                {activeSection === "available" ? (
+                    <section>
+                        <center><h3>Total {API.length} Product is Available Rignt Now</h3></center>
 
-                    {
-                        AllSelectedProduct.length === 0 ?
-                            <></>
-                            :
-                            <div className="d-flex justify-content-center my-4">
-                                <div className="bg-light border rounded shadow-lg px-4 py-3 text-center" style={{ maxWidth: "400px" }}>
-                                    <h5 className="mb-2 text-uppercase text-secondary">Total Price</h5>
-                                    <h3 className="text-success fw-bold">{formattedTotal}</h3>
-                                    <p className="text-muted small">Including all discounts</p>
+                        <Row className="g-0" xs={1} md={2}>
+                            {API.map((AllProduct, idx) => (
+                                <Col key={idx}>
+                                    <All_Product_Card
+                                        key={idx}
+                                        AllProduct={AllProduct}
+                                        handelRemovecoin={handelRemovecoin}
+                                        handelSelectedProduct={handelSelectedProduct}
+                                        Coin={Coin}
+                                        handleRemoveProduct={handleRemoveProduct}
+                                    />
+                                </Col>
+                            ))}
+                        </Row>
+                    </section>
+                ) : (
+                    <>
+
+                        {
+                            AllSelectedProduct.length === 0 ? (
+                                <>
+                                    <br /><br />
+                                    <center><h3>No Product is Selected</h3></center>
+                                    <center className="p-5">
+                                        <h4>Please Select Your Favorite Product!</h4>
+                                    </center>
+                                </>
+                            ) :
+                                (
+                                    <center><h3>Total Selected Product is {AllSelectedProduct.length}</h3></center>
+                                )
+                        }
+
+                        {
+                            AllSelectedProduct.length === 0 ?
+                                <></>
+                                :
+                                <div className="d-flex justify-content-center my-4">
+                                    <div className="bg-light border rounded shadow-lg px-4 py-3 text-center" style={{ maxWidth: "400px" }}>
+                                        <h5 className="mb-2 text-uppercase text-secondary">Total Price</h5>
+                                        <h3 className="text-success fw-bold">{formattedTotal}</h3>
+                                        <p className="text-muted small">Including all discounts</p>
+                                    </div>
                                 </div>
+                        }
+
+
+                        {AllSelectedProduct.length > 0 && (
+                            <div className="d-grid justify-content-center mb-3">
+                                <Button variant="danger" onClick={handleRemoveAllProducts}>
+                                    <b>Remove All Products</b>
+                                </Button>
+                                <Button className='mt-3' variant="success" onClick={''}>
+                                    <b>Place Order</b>
+                                </Button>
                             </div>
-                    }
-
-
-                    {AllSelectedProduct.length > 0 && (
-                        <div className="d-grid justify-content-center mb-3">
-                            <Button variant="danger" onClick={handleRemoveAllProducts}>
-                                <b>Remove All Products</b>
-                            </Button>
-                            <Button className='mt-3' variant="success" onClick={''}>
-                                <b>Place Order</b>
-                            </Button>
-                        </div>
-                    )}
+                        )}
 
 
 
-                    <Selected_Product_Container
-                        AllSelectedProduct={AllSelectedProduct}
-                        handleRemoveAllProducts={handleRemoveAllProducts}
-                        handleRemoveProduct={handleRemoveProduct}
-                    />
-                </>
-            )}
-        </>
+                        <Selected_Product_Container
+                            AllSelectedProduct={AllSelectedProduct}
+                            handleRemoveAllProducts={handleRemoveAllProducts}
+                            handleRemoveProduct={handleRemoveProduct}
+                        />
+                    </>
+                )}
+            </>
     );
 };
 
