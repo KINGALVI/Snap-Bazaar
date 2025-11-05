@@ -5,11 +5,13 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import All_Product_Card from './All-Product-Card';
 import Selected_Product_Container from '../Selected-Product-Section/Selected-Product-Container';
+import OrderModal from '../../Order-Section/Order-Modal';
 import { toast } from 'react-toastify';
 
 const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
     const [activeSection, setActiveSection] = useState("available");
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     const handelSelectedProduct = (AllProduct) => {
         const productWithUniqueId = {
@@ -35,6 +37,16 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
         });
     };
 
+    const handleConfirmOrder = (location) => {
+        toast.success(`Order confirmed! Delivery to: ${location}`, {
+            position: "top-center",
+            autoClose: 3000,
+            theme: "colored",
+        });
+        setSelectedProduct([]);
+        setShowModal(false);
+    };
+
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {
         const discountedPrice = product.price * (1 - product.discount / 100);
         return sum + discountedPrice;
@@ -45,11 +57,9 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
         currency: 'USD',
     }).format(totalPrice);
 
-    API.length
-
     return (
         API.length === 0 ?
-            <> <center className='m-5 p-5'>Loding...</center> </>
+            <> <center className='m-5 p-5'>Loading...</center> </>
             :
             <>
                 <br />
@@ -70,7 +80,7 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
 
                 {activeSection === "available" ? (
                     <section>
-                        <center><h3>Total {API.length} Product is Available Rignt Now</h3></center>
+                        <center><h3>Total {API.length} Product is Available Right Now</h3></center>
 
                         <Row className="g-0" xs={1} md={2}>
                             {API.map((AllProduct, idx) => (
@@ -89,26 +99,20 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                     </section>
                 ) : (
                     <>
+                        {AllSelectedProduct.length === 0 ? (
+                            <>
+                                <br /><br />
+                                <center><h3>No Product is Selected</h3></center>
+                                <center className="p-5">
+                                    <h4>Please Select Your Favorite Product!</h4>
+                                </center>
+                            </>
+                        ) : (
+                            <center><h3>Total Selected Product is {AllSelectedProduct.length}</h3></center>
+                        )}
 
-                        {
-                            AllSelectedProduct.length === 0 ? (
-                                <>
-                                    <br /><br />
-                                    <center><h3>No Product is Selected</h3></center>
-                                    <center className="p-5">
-                                        <h4>Please Select Your Favorite Product!</h4>
-                                    </center>
-                                </>
-                            ) :
-                                (
-                                    <center><h3>Total Selected Product is {AllSelectedProduct.length}</h3></center>
-                                )
-                        }
-
-                        {
-                            AllSelectedProduct.length === 0 ?
-                                <></>
-                                :
+                        {AllSelectedProduct.length > 0 && (
+                            <>
                                 <div className="d-flex justify-content-center my-4">
                                     <div className="bg-light border rounded shadow-lg px-4 py-3 text-center" style={{ maxWidth: "400px" }}>
                                         <h5 className="mb-2 text-uppercase text-secondary">Total Price</h5>
@@ -116,26 +120,28 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                                         <p className="text-muted small">Including all discounts</p>
                                     </div>
                                 </div>
-                        }
 
-
-                        {AllSelectedProduct.length > 0 && (
-                            <div className="d-grid justify-content-center mb-3">
-                                <Button variant="danger" onClick={handleRemoveAllProducts}>
-                                    <b>Remove All Products</b>
-                                </Button>
-                                <Button className='mt-3' variant="success" onClick={''}>
-                                    <b>Place Order</b>
-                                </Button>
-                            </div>
+                                <div className="d-grid justify-content-center mb-3">
+                                    <Button variant="danger" onClick={handleRemoveAllProducts}>
+                                        <b>Remove All Products</b>
+                                    </Button>
+                                    <Button className='mt-3' variant="success" onClick={() => setShowModal(true)}>
+                                        <b>Place Order</b>
+                                    </Button>
+                                </div>
+                            </>
                         )}
-
-
 
                         <Selected_Product_Container
                             AllSelectedProduct={AllSelectedProduct}
                             handleRemoveAllProducts={handleRemoveAllProducts}
                             handleRemoveProduct={handleRemoveProduct}
+                        />
+
+                        <OrderModal
+                            show={showModal}
+                            handleClose={() => setShowModal(false)}
+                            handleConfirm={handleConfirmOrder}
                         />
                     </>
                 )}

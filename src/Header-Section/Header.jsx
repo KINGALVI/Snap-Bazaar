@@ -13,7 +13,7 @@ function Header({ Coin }) {
 
             <Container>
 
-                <Navbar.Brand href="#">
+                <Navbar.Brand as={Link} to="/">
                     <Image
                         style={{ maxHeight: '150px' }}
                         src={TopLogo}
