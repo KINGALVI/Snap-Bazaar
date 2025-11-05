@@ -37,14 +37,8 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
         });
     };
 
-    const handleConfirmOrder = (location) => {
-        toast.success(`Order confirmed! Delivery to: ${location}`, {
-            position: "top-center",
-            autoClose: 3000,
-            theme: "colored",
-        });
+    const handleConfirmOrder = () => {
         setSelectedProduct([]);
-        setShowModal(false);
     };
 
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {

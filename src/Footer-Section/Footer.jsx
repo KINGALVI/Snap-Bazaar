@@ -4,8 +4,9 @@ import Row from 'react-bootstrap/Row';
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
 import BottomLogo from '../../public/Logo-&-OtherPicture/Snap-Bazaar-Brand.png';
+import { Link } from 'react-router-dom';
 
-const Footer = () => { 
+const Footer = () => {
   return (
     <footer className="bg-dark text-light py-5">
       <Container>
@@ -20,10 +21,9 @@ const Footer = () => {
           <Col md={4}>
             <h4>Quick Links</h4>
             <ul className="list-unstyled">
-              <li><a href="#" className="text-light">Home</a></li>
-              <li><a href="#" className="text-light">Services</a></li>
-              <li><a href="#" className="text-light">About</a></li>
-              <li><a href="#" className="text-light">Contact</a></li>
+              <li><Link as={Link} to="/"><b>Home</b></Link></li>
+              <li><Link as={Link} to="/cart"><b>Products</b></Link></li>
+              <li><Link as={Link} to="/about"><b>About</b></Link></li>
             </ul>
           </Col>
 
