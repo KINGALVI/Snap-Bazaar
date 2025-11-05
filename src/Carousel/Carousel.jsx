@@ -55,7 +55,7 @@ const Carousel = ({ handelSetcoin }) => {
                                     Fast delivery and secure checkout included!
                                 </span>
 
-                            </Card.Text>
+                            </Card.Text> 
 
                         </div>
 

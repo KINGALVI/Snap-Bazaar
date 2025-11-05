@@ -68,7 +68,7 @@ const All_Product_Card = ({ AllProduct, handelRemovecoin, handelSelectedProduct,
                                 {tags.map((tags, idx) => (
                                     <p style={{ cursor: "pointer" }} className="text-decoration-underline text-primary" key={idx}>#{tags}</p>
                                 ))}
-                            </span>
+                            </span> 
                             <div className="d-flex justify-content-between">
                                 <span><b>in Stock:</b> {stock} </span>
                                 <span className="d-flex align-items-center gap-1"><b>Rating:</b> <FaStar className="text-warning" />{rating} </span>

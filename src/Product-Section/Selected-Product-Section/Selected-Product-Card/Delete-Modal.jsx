@@ -10,7 +10,7 @@ const Delete_Modal = ({ show, handleClose, handleRemoveProduct, SelectedProduct 
                 <Modal.Title>Remove Product</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body> 
                 Are you sure you want to remove <b>{SelectedProduct.name}</b> from the product list?
             </Modal.Body>
 

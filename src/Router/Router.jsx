@@ -10,7 +10,7 @@ const AppRoutes = ({ API, handelRemovecoin, Coin, handelSetcoin }) => {
     <>
       <Routes>
         <Route
-          path="/"
+          path="/" 
           element={
             <>
               <Carousel handelSetcoin={handelSetcoin} />

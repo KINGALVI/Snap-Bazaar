@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Header/Header';
 import AppRoutes from './Router/Router';
 import { useEffect, useState } from 'react';
-
+ 
 function App() {
   const [API, setAPI] = useState([]);
   const [Coin, SetCoin] = useState(0);

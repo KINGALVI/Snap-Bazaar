@@ -24,7 +24,7 @@ function Header({ Coin }) {
                 <b className="d-block d-md-none"
                     style={{
                         fontSize: '10px',
-                        display: 'flex',
+                        display: 'flex', 
                         alignItems: 'center',
                         border: '3px solid black',
                         padding: '5.5px',

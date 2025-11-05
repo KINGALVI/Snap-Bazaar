@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
 import BottomLogo from '../../public/Logo-&-OtherPicture/Snap-Bazaar-Brand.png';
 
-const Footer = () => {
+const Footer = () => { 
   return (
     <footer className="bg-dark text-light py-5">
       <Container>

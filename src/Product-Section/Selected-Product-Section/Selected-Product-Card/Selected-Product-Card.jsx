@@ -3,7 +3,6 @@ import { MdDeleteForever } from "react-icons/md";
 import { useState } from 'react';
 import Delete_Modal from './Delete-Modal';
 import PropTypes from 'prop-types';
-import Button from "react-bootstrap/Button";
 
 const Selected_Product_Card = ({ SelectedProduct, handleRemoveProduct }) => {
     const [show, setShow] = useState(false);
@@ -15,7 +14,7 @@ const Selected_Product_Card = ({ SelectedProduct, handleRemoveProduct }) => {
     const discountedPrice = SelectedProduct.price * (1 - SelectedProduct.discount / 100);
 
     return (
-        <>
+        <> 
             <section className="d-flex justify-content-center align-items-center">
                 <Card className="bg-white text-dark shadow-lg m-5" style={{ width: '25rem', borderRadius: '10px' }}>
                     <Card.Img variant="top" src={SelectedProduct.image} />
@@ -49,9 +48,6 @@ const Selected_Product_Card = ({ SelectedProduct, handleRemoveProduct }) => {
                     </Card.Body>
 
                     <center className="p-3 d-grid justify-content-center">
-                        <Button variant="success" onClick={''}>
-                            <b>Place Order</b>
-                        </Button>
                         <div className="ps-1 pt-3">
                             <MdDeleteForever
                                 style={{ cursor: "pointer" }}

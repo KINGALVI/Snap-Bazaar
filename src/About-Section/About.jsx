@@ -9,7 +9,7 @@ const About = () => {
             <h2 className="mb-4">🛍️ About Snap Bazaar</h2>
 
             <Row className="justify-content-center">
-                <Col md={8}>
+                <Col md={8}> 
                     <p className="lead">
                         Snap Bazaar is a modern e-commerce platform built for curious shoppers and passionate creators.
                         We curate a diverse catalog of high-quality products—from cutting-edge electronics to cozy home essentials—
