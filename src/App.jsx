@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Header from './Header/Header';
+import Header from './Header-Section/Header';
 import AppRoutes from './Router/Router';
 import { useEffect, useState } from 'react';
  

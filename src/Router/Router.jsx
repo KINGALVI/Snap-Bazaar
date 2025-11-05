@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import Carousel from '../Carousel/Carousel';
+import Carousel from '../Carousel-Section/Carousel';
 import All_Product_Container from '../Product-Section/All-Product-Section/All-Product-Container';
 import About from '../About-Section/About';
-import NotFound from '../404/404-Page';
-import Footer from '../Footer/Footer';
+import NotFound from '../404-Section/404-Page';
+import Footer from '../Footer-Section/Footer';
 
 const AppRoutes = ({ API, handelRemovecoin, Coin, handelSetcoin }) => {
   return (
