@@ -5,21 +5,39 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
 
-const All_Product_Card = ({ AllProduct, handelRemovecoin, handelSelectedProduct, Coin }) => {
+const All_Product_Card = ({
+    AllProduct,
+    handelRemovecoin,
+    handelSelectedProduct,
+    Coin,
+    AllSelectedProduct,
+    productStockMap // ✅ new prop
+}) => {
+    const {
+        image, name, description, category, brand, price, discount,
+        color, warranty, stock, rating, tags, id
+    } = AllProduct;
 
-    const { image, name, description, category, brand, price, discount, color, warranty, stock, rating, tags } = AllProduct;
+    // ✅ Count selected and ordered units
+    const selectedCount = AllSelectedProduct.filter(p => p.id === id).length;
+    const orderedCount = productStockMap?.[id] || 0;
+    const totalCount = selectedCount + orderedCount;
+    const isOutOfStock = totalCount >= stock;
 
     const handelSingelPlayer = () => {
+        if (isOutOfStock) {
+            toast.error("Sorry! This product is out of stock.", {
+                position: "top-center",
+                autoClose: 3000,
+                theme: "colored",
+            });
+            return;
+        }
 
         if (Coin === 0) {
             toast.error("You don't have enough Coins. Please add Credit to purchase a product.", {
                 position: "top-center",
                 autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                pauseOnFocusLoss: false,
-                draggable: true,
                 theme: "colored",
             });
             return;
@@ -29,63 +47,70 @@ const All_Product_Card = ({ AllProduct, handelRemovecoin, handelSelectedProduct,
         handelRemovecoin();
     };
 
+    // ✅ Conditional class for out-of-stock styling
+    const cardClass = `bg-white text-dark shadow-lg m-5 ${isOutOfStock ? "border-danger opacity-75" : ""}`;
+
     return (
-        <>
+        <section className="d-flex justify-content-center align-items-center">
+            <Card className={cardClass} style={{ width: "25rem", borderRadius: "10px" }}>
+                <center>
+                    <Card.Img
+                        style={{ height: "300px", width: "300px", filter: isOutOfStock ? "grayscale(100%)" : "none" }}
+                        variant="top"
+                        src={image}
+                    />
+                </center>
 
-            <section className="d-flex justify-content-center align-items-center">
-                <Card className="bg-white text-dark shadow-lg m-5" style={{ width: "25rem", borderRadius: "10px" }}>
+                <Card.Body>
+                    <Card.Title>{name}</Card.Title>
+                    <Card.Text>{description}</Card.Text>
 
-                    <center><Card.Img style={{ height: "300px", width: "300px" }} variant="top" src={image} /></center>
+                    <hr />
+                    <h4><b>Product Detail</b></h4>
+                    <hr />
 
-                    <Card.Body>
+                    <div className="d-grid pb-2">
+                        <span><b>Category:</b> {category}</span>
+                        <span><b>Brand:</b> {brand}</span>
+                        <span><b>Price:</b> ${price}</span>
 
-                        <Card.Title>{name}</Card.Title>
+                        {discount === 0 ? (
+                            <span><b>Product Discount:</b> Sorry! This product doesn't have any discount.</span>
+                        ) : (
+                            <span><b>Product Discount:</b> {discount}%</span>
+                        )}
 
-                        <Card.Text>{description}</Card.Text>
+                        <span><b>Color:</b> {color}</span>
+                        <span><b>Warranty:</b> {warranty}</span>
 
-                        <hr />
+                        <br />
+                        <center><h4>Tags</h4></center>
+                        <span className="d-flex justify-content-center gap-3">
+                            {tags.map((tag, idx) => (
+                                <p key={idx} style={{ cursor: "pointer" }} className="text-decoration-underline text-primary">#{tag}</p>
+                            ))}
+                        </span>
 
-                        <h4><b>Product Detail</b></h4>
-
-                        <hr />
-
-                        <div className="d-grid pb-2">
-                            <span><b>Category:</b> {category} </span>
-                            <span><b>Brand:</b> {brand} </span>
-                            <span><b>Price:</b> ${price} </span>
-
-                            {
-                                discount === 0 ?
-                                    <span><b>Product Discount:</b> Sorry !! Thish Product don't have any discount</span>
-                                    :
-                                    <span><b>Product Discount:</b> {discount}%</span>
-                            }
-                            <span><b>Color:</b> {color} </span>
-                            <span><b>Warranty:</b> {warranty} </span>
-                            <br />
-                            <center><h4>Tags</h4></center>
-                            <span className="d-flex justify-content-center gap-3">
-                                {tags.map((tags, idx) => (
-                                    <p style={{ cursor: "pointer" }} className="text-decoration-underline text-primary" key={idx}>#{tags}</p>
-                                ))}
-                            </span> 
-                            <div className="d-flex justify-content-between">
-                                <span><b>in Stock:</b> {stock} </span>
-                                <span className="d-flex align-items-center gap-1"><b>Rating:</b> <FaStar className="text-warning" />{rating} </span>
-                            </div>
+                        <div className={isOutOfStock ? "d-grid justify-content-center pb-3" : "d-flex justify-content-between"}>
+                            {isOutOfStock ? (
+                                <p className="text-danger"><b>Sorry! This product is out of stock.</b></p>
+                            ) : (
+                                <span><b>In Stock:</b> {stock - totalCount}</span>
+                            )}
+                            <span className="d-flex align-items-center">
+                                <b>Rating:</b> <FaStar className="text-warning ms-1" /> {rating}
+                            </span>
                         </div>
+                    </div>
 
-                        <center>
-                            <Button variant="success" onClick={handelSingelPlayer}>
-                                <b>Add to Cart</b>
-                            </Button>
-                        </center>
-
-                    </Card.Body>
-                </Card>
-            </section>
-
-        </>
+                    <center>
+                        <Button variant="success" onClick={handelSingelPlayer} disabled={isOutOfStock}>
+                            <b>{isOutOfStock ? "Out of Stock" : "Add to Cart"}</b>
+                        </Button>
+                    </center>
+                </Card.Body>
+            </Card>
+        </section>
     );
 };
 
@@ -95,6 +120,7 @@ All_Product_Card.propTypes = {
     handelSelectedProduct: PropTypes.func.isRequired,
     AllSelectedProduct: PropTypes.array.isRequired,
     Coin: PropTypes.number.isRequired,
+    productStockMap: PropTypes.object.isRequired // ✅ added
 };
 
 export default All_Product_Card;

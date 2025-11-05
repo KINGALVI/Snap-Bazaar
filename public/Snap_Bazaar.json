@@ -7,12 +7,17 @@
     "brand": "EchoWave",
     "price": 59.99,
     "discount": 10,
-    "stock": 120,
+    "stock": 10,
     "rating": 4.5,
     "color": "Black",
     "warranty": "1 year",
     "description": "Compact Bluetooth earbuds with noise cancellation, 24-hour battery life, and touch controls.",
-    "tags": ["wireless", "bluetooth", "audio", "earbuds"]
+    "tags": [
+      "wireless",
+      "bluetooth",
+      "audio",
+      "earbuds"
+    ]
   },
   {
     "id": 2,
@@ -22,12 +27,17 @@
     "brand": "LumaGlow",
     "price": 39.99,
     "discount": 5,
-    "stock": 80,
+    "stock": 4,
     "rating": 4.2,
     "color": "White",
     "warranty": "2 years",
     "description": "Adjustable LED desk lamp with ambient light sensors and USB charging port.",
-    "tags": ["lamp", "smart", "USB", "home"]
+    "tags": [
+      "lamp",
+      "smart",
+      "USB",
+      "home"
+    ]
   },
   {
     "id": 3,
@@ -37,12 +47,17 @@
     "brand": "TrailFlex",
     "price": 74.99,
     "discount": 15,
-    "stock": 45,
+    "stock": 3,
     "rating": 4.7,
     "color": "Olive Green",
     "warranty": "3 years",
     "description": "Durable and waterproof hiking backpack with 40L capacity and ergonomic straps.",
-    "tags": ["backpack", "hiking", "outdoors", "waterproof"]
+    "tags": [
+      "backpack",
+      "hiking",
+      "outdoors",
+      "waterproof"
+    ]
   },
   {
     "id": 4,
@@ -52,12 +67,17 @@
     "brand": "CodeCraft",
     "price": 29.99,
     "discount": 0,
-    "stock": 200,
+    "stock": 7,
     "rating": 4.9,
     "color": "red",
     "warranty": "6 months",
     "description": "Comprehensive guide to modern JavaScript with real-world examples and exercises.",
-    "tags": ["book", "JavaScript", "coding", "learning"]
+    "tags": [
+      "book",
+      "JavaScript",
+      "coding",
+      "learning"
+    ]
   },
   {
     "id": 5,
@@ -67,12 +87,17 @@
     "brand": "AeroStride",
     "price": 64.99,
     "discount": 20,
-    "stock": 60,
+    "stock": 6,
     "rating": 4.4,
     "color": "Blue",
     "warranty": "4 months",
     "description": "Lightweight and breathable running shoes with shock-absorbing soles.",
-    "tags": ["shoes", "running", "fashion", "sports"]
+    "tags": [
+      "shoes",
+      "running",
+      "fashion",
+      "sports"
+    ]
   },
   {
     "id": 6,
@@ -82,12 +107,17 @@
     "brand": "PureLeaf",
     "price": 14.99,
     "discount": 5,
-    "stock": 300,
+    "stock": 9,
     "rating": 4.6,
     "color": "Dark green",
     "warranty": "8 months",
     "description": "100 tea bags of antioxidant-rich organic green tea from Himalayan farms.",
-    "tags": ["tea", "organic", "grocery", "health"]
+    "tags": [
+      "tea",
+      "organic",
+      "grocery",
+      "health"
+    ]
   },
   {
     "id": 7,
@@ -97,12 +127,17 @@
     "brand": "PixelView",
     "price": 89.99,
     "discount": 10,
-    "stock": 35,
+    "stock": 3,
     "rating": 4.3,
     "color": "Silver",
     "warranty": "1 year",
     "description": "Portable projector with HDMI and USB support, ideal for movies and presentations.",
-    "tags": ["projector", "portable", "HDMI", "electronics"]
+    "tags": [
+      "projector",
+      "portable",
+      "HDMI",
+      "electronics"
+    ]
   },
   {
     "id": 8,
@@ -112,12 +147,17 @@
     "brand": "ZenWeave",
     "price": 34.99,
     "discount": 0,
-    "stock": 90,
+    "stock": 9,
     "rating": 4.8,
     "color": "Beige",
     "warranty": "1 year",
     "description": "Soft and breathable cotton blanket perfect for cozy evenings and minimalist decor.",
-    "tags": ["blanket", "cotton", "home", "cozy"]
+    "tags": [
+      "blanket",
+      "cotton",
+      "home",
+      "cozy"
+    ]
   },
   {
     "id": 9,
@@ -127,12 +167,17 @@
     "brand": "HydroMate",
     "price": 19.99,
     "discount": 5,
-    "stock": 150,
+    "stock": 15,
     "rating": 4.6,
     "color": "Matte Black",
     "warranty": "2 years",
     "description": "Keeps drinks cold for 24 hours and hot for 12. Leak-proof and eco-friendly.",
-    "tags": ["water bottle", "stainless", "eco", "outdoors"]
+    "tags": [
+      "water bottle",
+      "stainless",
+      "eco",
+      "outdoors"
+    ]
   },
   {
     "id": 10,
@@ -142,11 +187,16 @@
     "brand": "FlexFit",
     "price": 24.99,
     "discount": 10,
-    "stock": 110,
+    "stock": 10,
     "rating": 4.5,
     "color": "Multicolor",
     "warranty": "1 year",
     "description": "Set of 5 resistance bands with varying tension levels for strength training and rehab.",
-    "tags": ["fitness", "bands", "workout", "home gym"]
+    "tags": [
+      "fitness",
+      "bands",
+      "workout",
+      "home gym"
+    ]
   }
 ]

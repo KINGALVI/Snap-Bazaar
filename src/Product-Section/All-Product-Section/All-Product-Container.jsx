@@ -12,6 +12,7 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
     const [activeSection, setActiveSection] = useState("available");
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [productStockMap, setProductStockMap] = useState({}); // ✅ new state
 
     const handelSelectedProduct = (AllProduct) => {
         const productWithUniqueId = {
@@ -38,7 +39,16 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
     };
 
     const handleConfirmOrder = () => {
+        const updatedStockMap = { ...productStockMap };
+
+        AllSelectedProduct.forEach(product => {
+            const currentCount = updatedStockMap[product.id] || 0;
+            updatedStockMap[product.id] = currentCount + 1;
+        });
+
+        setProductStockMap(updatedStockMap); // ✅ update stock tracking
         setSelectedProduct([]);
+        setShowModal(false);
     };
 
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {
@@ -86,6 +96,8 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                                         handelSelectedProduct={handelSelectedProduct}
                                         Coin={Coin}
                                         handleRemoveProduct={handleRemoveProduct}
+                                        AllSelectedProduct={AllSelectedProduct}
+                                        productStockMap={productStockMap} // ✅ pass stock map
                                     />
                                 </Col>
                             ))}
