@@ -55,7 +55,7 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
 
             {activeSection === "available" ? (
                 <section>
-                    <center><h3>Total Available Product: {API.length}</h3></center>
+                    <center><h3>Total {API.length} Product is Available Rignt Now</h3></center>
 
                     <Row className="g-0" xs={1} md={2}>
                         {API.map((AllProduct, idx) => (

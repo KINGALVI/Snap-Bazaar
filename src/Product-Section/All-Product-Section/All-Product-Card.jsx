@@ -25,20 +25,6 @@ const All_Product_Card = ({ AllProduct, handelRemovecoin, handelSelectedProduct,
             return;
         }
 
-        // if (isProductAlreadyExist) {
-        //     toast.error("This player is already selected!", {
-        //         position: "top-center",
-        //         autoClose: 3000,
-        //         hideProgressBar: false,
-        //         closeOnClick: true,
-        //         pauseOnHover: false,
-        //         pauseOnFocusLoss: false,
-        //         draggable: true,
-        //         theme: "colored",
-        //     });
-        //     return;
-        // }
-
         handelSelectedProduct(AllProduct);
         handelRemovecoin();
     };
@@ -68,7 +54,12 @@ const All_Product_Card = ({ AllProduct, handelRemovecoin, handelSelectedProduct,
                             <span><b>Brand:</b> {brand} </span>
                             <span><b>Price:</b> ${price} </span>
 
-                            <span><b>Discount:</b> {discount}% </span>
+                            {
+                                discount === 0 ?
+                                    <span><b>Product Discount:</b> Sorry !! Thish Product don't have any discount</span>
+                                    :
+                                    <span><b>Product Discount:</b> {discount}%</span>
+                            }
                             <span><b>Color:</b> {color} </span>
                             <span><b>Warranty:</b> {warranty} </span>
                             <br />

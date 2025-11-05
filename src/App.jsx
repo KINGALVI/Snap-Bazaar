@@ -2,16 +2,15 @@ import './App.CSS';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Header from './Header/Header';
-import Carousel from './Carousel/Carousel';
-import All_Product_Container from './Product-Section/All-Product-Section/All-Product-Container';
-import Footer from './Footer/Footer';
+import AppRoutes from './Router/Router';
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
 function App() {
-
   const [API, setAPI] = useState([]);
+  const [Coin, SetCoin] = useState(0);
 
   useEffect(() => {
     fetch('/Snap_Bazaar.json')
@@ -19,57 +18,31 @@ function App() {
       .then(data => setAPI(data));
   }, []);
 
-  const [Coin, SetCoin] = useState(0);
-
   const handelSetcoin = () => {
     SetCoin(Coin + 5000);
   };
 
   const handelRemovecoin = () => {
     SetCoin(Coin - 5000);
-    displaySuccessMsg();
-  };
-
-  const displaySuccessMsg = () => {
     toast.success(`Product purchased successfully! Now you have ${Coin - 5000} coins.`, {
       position: "top-center",
       autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
       theme: "colored",
     });
   };
 
   return (
-    <>
-
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        draggable
-        theme="colored"
-      />
-
+    <Router>
+      <ToastContainer />
       <Header Coin={Coin} />
-
-      <Carousel handelSetcoin={handelSetcoin} />
-
-      <All_Product_Container API={API} handelRemovecoin={handelRemovecoin} Coin={Coin} />
-
-      <Footer />
-
-    </>
+      <AppRoutes
+        API={API}
+        Coin={Coin}
+        handelRemovecoin={handelRemovecoin}
+        handelSetcoin={handelSetcoin}
+      />
+    </Router>
   );
 }
-
-App.propTypes = {
-  API: PropTypes.array,
-  Coin: PropTypes.number,
-  handelRemovecoin: PropTypes.func,
-  handelSetcoin: PropTypes.func,
-};
 
 export default App;

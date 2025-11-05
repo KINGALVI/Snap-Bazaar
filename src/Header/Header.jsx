@@ -5,6 +5,7 @@ import Image from 'react-bootstrap/Image';
 import { TbCoinFilled } from "react-icons/tb";
 import TopLogo from "../../public/Logo-&-OtherPicture/Snap-Bazaar-Brand.png";
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 function Header({ Coin }) {
     return (
@@ -37,9 +38,9 @@ function Header({ Coin }) {
                 <Navbar.Collapse id="navbarScroll">
 
                     <Nav className="mx-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-                        <Nav.Link className='text-center' href="#action1"><b>Home</b></Nav.Link>
-                        <Nav.Link className='text-center' href="#action2"><b>Product Cart</b></Nav.Link>
-                        <Nav.Link className='text-center' href="#action3"><b>About Us</b></Nav.Link>
+                        <Nav.Link as={Link} to="/"><b>Home</b></Nav.Link>
+                        <Nav.Link as={Link} to="/cart"><b>Product Cart</b></Nav.Link>
+                        <Nav.Link as={Link} to="/about"><b>About Us</b></Nav.Link>
                     </Nav>
 
                 </Navbar.Collapse>
