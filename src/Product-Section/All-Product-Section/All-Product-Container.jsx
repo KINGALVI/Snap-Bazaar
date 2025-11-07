@@ -46,9 +46,8 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
             updatedStockMap[product.id] = currentCount + 1;
         });
 
-        setProductStockMap(updatedStockMap); // ✅ update stock tracking
+        setProductStockMap(updatedStockMap);
         setSelectedProduct([]);
-        setShowModal(false);
     };
 
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {
@@ -97,7 +96,7 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                                         Coin={Coin}
                                         handleRemoveProduct={handleRemoveProduct}
                                         AllSelectedProduct={AllSelectedProduct}
-                                        productStockMap={productStockMap} // ✅ pass stock map
+                                        productStockMap={productStockMap}
                                     />
                                 </Col>
                             ))}

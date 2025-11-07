@@ -77,8 +77,10 @@ const OrderModal = ({ show, handleClose, handleConfirm }) => {
 
     return (
         <Modal show={show} onHide={handleCloseModal} centered>
-            <Modal.Header closeButton>
-                <Modal.Title>Choose Delivery Location</Modal.Title>
+            <Modal.Header>
+                <Modal.Title>
+                    {orderConfirmed ? "Order Confirmed!" : "Choose Delivery Location"}
+                </Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
