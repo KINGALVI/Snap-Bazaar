@@ -3,10 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Professional_Players from "../../public/Logo-&-OtherPicture/E-commerce-Carousel-Picture.jpg";
 import PropTypes from 'prop-types';
 
-const Carousel = ({ handelSetcoin, triggerCoinPulse }) => {
+const Carousel = ({ handelSetcoin }) => {
     const handleClick = () => {
         handelSetcoin();
-        triggerCoinPulse();
     };
 
     return (
