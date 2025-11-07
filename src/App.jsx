@@ -1,4 +1,4 @@
-import './App.CSS';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Header-Section/Header';
 import AppRoutes from './Router/Router';
 import { useEffect, useState } from 'react';
- 
+
 function App() {
   const [API, setAPI] = useState([]);
   const [Coin, SetCoin] = useState(0);
@@ -33,14 +33,27 @@ function App() {
 
   return (
     <Router>
-      <ToastContainer />
-      <Header Coin={Coin} />
-      <AppRoutes
-        API={API}
-        Coin={Coin}
-        handelRemovecoin={handelRemovecoin}
-        handelSetcoin={handelSetcoin}
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
       />
+      <div className="fade-in">
+        <Header Coin={Coin} />
+        <AppRoutes
+          API={API}
+          Coin={Coin}
+          handelRemovecoin={handelRemovecoin}
+          handelSetcoin={handelSetcoin}
+        />
+      </div>
     </Router>
   );
 }
