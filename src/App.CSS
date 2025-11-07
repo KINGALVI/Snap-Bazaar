@@ -1,3 +1,4 @@
+/* Base Typography & Layout */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
@@ -15,6 +16,7 @@ h5 {
     color: #1e1e1e;
 }
 
+/* Button Styling */
 button {
     transition: all 0.3s ease;
 }
@@ -24,6 +26,7 @@ button:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Toastify Notifications */
 .Toastify__toast--success {
     background: #28a745;
     color: white;
@@ -35,6 +38,7 @@ button:hover {
     color: white;
 }
 
+/* Fade-In Animation */
 .fade-in {
     animation: fadeIn 0.8s ease-in-out;
 }
@@ -49,4 +53,86 @@ button:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Coin Box Styling */
+.coin-box {
+    border: 2px solid #ffc107;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background-color: #fff8e1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #333;
+    transition: transform 0.4s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Logo Hover Animation */
+.logo-hover {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo-hover:hover {
+    filter: drop-shadow(0 0 10px #00bcd4);
+}
+
+/* Navbar Shrink on Scroll */
+.navbar-shrink {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    transition: padding 0.3s ease;
+}
+
+/* Nav Link Hover + Active Styling */
+.nav-links .nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-links .nav-link:hover::after,
+.nav-links .nav-link.nav-active::after {
+    transform: scaleX(1);
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link.nav-active {
+    color: #007bff;
+}
+
+@keyframes coinGrowShrink {
+  0%   { transform: scale(1); }
+  25%   { transform: scale(1.2); }
+  50%  { transform: scale(1.3); }
+  75%  { transform: scale(1.2);}
+  100% { transform: scale(1); }
+}
+
+.coin-pulse {
+  animation: coinGrowShrink 2s ease-in-out;
 }

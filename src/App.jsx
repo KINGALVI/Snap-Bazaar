@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [API, setAPI] = useState([]);
   const [Coin, SetCoin] = useState(0);
+  const [coinPulse, setCoinPulse] = useState(false);
 
   useEffect(() => {
     fetch('/Snap_Bazaar.json')
@@ -18,11 +19,18 @@ function App() {
       .then(data => setAPI(data));
   }, []);
 
+  const triggerCoinPulse = () => {
+    setCoinPulse(true);
+    setTimeout(() => setCoinPulse(false), 400); // match animation duration
+  };
+
   const handelSetcoin = () => {
     SetCoin(Coin + 5000);
+    triggerCoinPulse();
   };
 
   const handelRemovecoin = () => {
+    triggerCoinPulse();
     SetCoin(Coin - 5000);
     toast.success(`Product purchased successfully! Now you have ${Coin - 5000} coins.`, {
       position: "top-center",
@@ -46,7 +54,7 @@ function App() {
         theme="colored"
       />
       <div className="fade-in">
-        <Header Coin={Coin} />
+        <Header Coin={Coin} coinPulse={coinPulse} />
         <AppRoutes
           API={API}
           Coin={Coin}
