@@ -140,7 +140,7 @@ All_Product_Card.propTypes = {
     handelSelectedProduct: PropTypes.func.isRequired,
     AllSelectedProduct: PropTypes.array.isRequired,
     Coin: PropTypes.number.isRequired,
-    productStockMap: PropTypes.object.isRequired // ✅ added
+    productStockMap: PropTypes.object.isRequired
 };
 
 export default All_Product_Card;

@@ -12,7 +12,7 @@ const Selected_Product_Container = ({ AllSelectedProduct, handleRemoveProduct })
             ) : (
                 <>
 
-                    <Row className="g-0" xs={1} md={2}>
+                    <Row className="g-0 fade-in-bounce" xs={1} md={2}>
                         {AllSelectedProduct.map((SelectedProduct, idx) => (
                             <Col key={idx}>
                                 <Selected_Product_Card

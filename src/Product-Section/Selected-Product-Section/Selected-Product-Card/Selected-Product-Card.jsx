@@ -14,10 +14,10 @@ const Selected_Product_Card = ({ SelectedProduct, handleRemoveProduct }) => {
     const discountedPrice = SelectedProduct.price * (1 - SelectedProduct.discount / 100);
 
     return (
-        <> 
+        <>
             <section className="d-flex justify-content-center align-items-center">
-                <Card className="bg-white text-dark shadow-lg m-5" style={{ width: '25rem', borderRadius: '10px' }}>
-                    <Card.Img variant="top" src={SelectedProduct.image} />
+                <Card className="bg-white text-dark shadow-lg m-5 product-card" style={{ width: '25rem', borderRadius: '10px' }}>
+                    <Card.Img variant="top" src={SelectedProduct.image} className="product-image" />
 
                     <Card.Body>
                         <Card.Title>{SelectedProduct.name}</Card.Title>
@@ -37,10 +37,10 @@ const Selected_Product_Card = ({ SelectedProduct, handleRemoveProduct }) => {
                                 )}
                             </p>
                             {
-                                SelectedProduct.discount === 0 ? 
-                                <p><b>Product Discount:</b> Sorry !! Thish Product don't have any discount</p>
-                                :
-                                <p><b>Product Discount:</b> {SelectedProduct.discount}%</p>
+                                SelectedProduct.discount === 0 ?
+                                    <p><b>Product Discount:</b> Sorry !! Thish Product don't have any discount</p>
+                                    :
+                                    <p><b>Product Discount:</b> {SelectedProduct.discount}%</p>
                             }
                             <p><b>Product Color:</b> {SelectedProduct.color}</p>
                             <p><b>Product Warranty:</b> {SelectedProduct.warranty}</p>
