@@ -5,15 +5,18 @@ import About from '../About-Section/About';
 import NotFound from '../404-Section/404-Page';
 import Footer from '../Footer-Section/Footer';
 
-const AppRoutes = ({ API, handelRemovecoin, Coin, handelSetcoin }) => {
+const AppRoutes = ({ API, handelRemovecoin, Coin, handelSetcoin, triggerCoinPulse }) => {
   return (
     <>
       <Routes>
         <Route
-          path="/" 
+          path="/"
           element={
             <>
-              <Carousel handelSetcoin={handelSetcoin} />
+              <Carousel
+                handelSetcoin={handelSetcoin}
+                triggerCoinPulse={triggerCoinPulse}
+              />
               <All_Product_Container
                 API={API}
                 handelRemovecoin={handelRemovecoin}

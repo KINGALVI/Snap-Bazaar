@@ -61,6 +61,7 @@ function App() {
             Coin={Coin}
             handelRemovecoin={handelRemovecoin}
             handelSetcoin={handelSetcoin}
+            triggerCoinPulse={triggerCoinPulse}
           />
         </div>
       </Router>
