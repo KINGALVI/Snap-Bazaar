@@ -11,7 +11,7 @@ const All_Product_Card = ({
     handelSelectedProduct,
     Coin,
     AllSelectedProduct,
-    productStockMap // ✅ new prop
+    productStockMap
 }) => {
     const {
         image, name, description, category, brand, price, discount,
@@ -52,7 +52,7 @@ const All_Product_Card = ({
 
     return (
         <section className="d-flex justify-content-center align-items-center">
-            <Card className={cardClass} style={{ width: "25rem", borderRadius: "10px" }}>
+            <Card className={`${cardClass} product-card`} style={{ width: "25rem", borderRadius: "10px" }}>
                 <center>
                     <Card.Img
                         style={{ height: "300px", width: "300px", filter: isOutOfStock ? "grayscale(100%)" : "none" }}

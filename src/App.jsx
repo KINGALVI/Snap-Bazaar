@@ -40,29 +40,31 @@ function App() {
   };
 
   return (
-    <Router>
-      <ToastContainer
-        position="top-center"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-      <div className="fade-in">
-        <Header Coin={Coin} coinPulse={coinPulse} />
-        <AppRoutes
-          API={API}
-          Coin={Coin}
-          handelRemovecoin={handelRemovecoin}
-          handelSetcoin={handelSetcoin}
+    <section className="fade-in-bounce">
+      <Router>
+        <ToastContainer
+          position="top-center"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
         />
-      </div>
-    </Router>
+        <div className="fade-in">
+          <Header Coin={Coin} coinPulse={coinPulse} />
+          <AppRoutes
+            API={API}
+            Coin={Coin}
+            handelRemovecoin={handelRemovecoin}
+            handelSetcoin={handelSetcoin}
+          />
+        </div>
+      </Router>
+    </section>
   );
 }
 

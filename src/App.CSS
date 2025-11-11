@@ -170,7 +170,7 @@ button:hover {
 }
 
 /* Carousel Text Fade-In */
-.carousel-fade-in {
+/* .carousel-fade-in {
     animation: fadeInUp 1s ease-out;
 }
 
@@ -184,7 +184,7 @@ button:hover {
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 .carousel-caption-center {
     position: absolute;
@@ -200,4 +200,124 @@ button:hover {
 .mobile-carousel-button {
     border-radius: 6px;
     min-width: 120px;
+}
+
+/* Layout Fixes */
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Section Toggle Buttons */
+.section-toggle-btn {
+    transition: all 0.3s ease;
+}
+
+.section-toggle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Product Card Animation */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Total Price Box */
+.total-price-box {
+    border: 2px solid #28a745;
+    box-shadow: 0 0 12px rgba(40, 167, 69, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Empty State Padding Fix */
+.empty-state {
+    padding: 2rem 1rem;
+}
+
+/* Fade-in with bounce for empty state */
+.fade-in-bounce {
+    animation: fadeBounce 0.8s ease-out;
+}
+
+@keyframes fadeBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Scale-in for total price box */
+.scale-in {
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Staggered button entrance */
+.button-stagger {
+    display: grid;
+    gap: 12px;
+}
+
+.stagger-item {
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.stagger-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

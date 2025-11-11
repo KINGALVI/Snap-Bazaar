@@ -67,37 +67,46 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
             <>
                 <br />
 
-                <section className="d-flex justify-content-center mb-3">
+                {/* Section Toggle */}
+                <section className="d-flex justify-content-center mb-3 fade-in-bounce">
                     <span className="pe-2">
-                        <Button variant={activeSection === "available" ? "primary" : "outline-primary"} onClick={() => setActiveSection("available")}>
-                            {API.length} Available Product
+                        <Button
+                            variant={activeSection === "available" ? "primary" : "outline-primary"}
+                            className="section-toggle-btn"
+                            onClick={() => setActiveSection("available")}
+                        >
+                            🛍️ {API.length} Available Products
                         </Button>
                     </span>
-
                     <span className="ps-2">
-                        <Button variant={activeSection === "selected" ? "success" : "outline-success"} onClick={() => setActiveSection("selected")}>
-                            {AllSelectedProduct.length} Selected Product
+                        <Button
+                            variant={activeSection === "selected" ? "success" : "outline-success"}
+                            className="section-toggle-btn"
+                            onClick={() => setActiveSection("selected")}
+                        >
+                            ✅ {AllSelectedProduct.length} Selected Products
                         </Button>
                     </span>
                 </section>
 
+                {/* Available Products */}
                 {activeSection === "available" ? (
                     <section>
-                        <center><h3>Total {API.length} Product is Available Right Now</h3></center>
-
-                        <Row className="g-0" xs={1} md={2}>
+                        <center><h3 className="mb-4 fade-in-bounce">Total {API.length} Products Available</h3></center>
+                        <Row className="g-4" xs={1} md={2}>
                             {API.map((AllProduct, idx) => (
-                                <Col key={idx}>
-                                    <All_Product_Card
-                                        key={idx}
-                                        AllProduct={AllProduct}
-                                        handelRemovecoin={handelRemovecoin}
-                                        handelSelectedProduct={handelSelectedProduct}
-                                        Coin={Coin}
-                                        handleRemoveProduct={handleRemoveProduct}
-                                        AllSelectedProduct={AllSelectedProduct}
-                                        productStockMap={productStockMap}
-                                    />
+                                <Col key={idx} className="fade-in-bounce">
+                                    <div>
+                                        <All_Product_Card
+                                            AllProduct={AllProduct}
+                                            handelRemovecoin={handelRemovecoin}
+                                            handelSelectedProduct={handelSelectedProduct}
+                                            Coin={Coin}
+                                            handleRemoveProduct={handleRemoveProduct}
+                                            AllSelectedProduct={AllSelectedProduct}
+                                            productStockMap={productStockMap}
+                                        />
+                                    </div>
                                 </Col>
                             ))}
                         </Row>
@@ -105,33 +114,28 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                 ) : (
                     <>
                         {AllSelectedProduct.length === 0 ? (
-                            <>
-                                <br /><br />
-                                <center><h3>No Product is Selected</h3></center>
-                                <center className="p-5">
-                                    <h4>Please Select Your Favorite Product!</h4>
-                                </center>
-                            </>
+                            <div className="text-center empty-state fade-in-bounce">
+                                <h3>No Products Selected</h3>
+                                <h4 className="mt-3">🧺 Start selecting your favorites!</h4>
+                            </div>
                         ) : (
-                            <center><h3>Total Selected Product is {AllSelectedProduct.length}</h3></center>
-                        )}
-
-                        {AllSelectedProduct.length > 0 && (
                             <>
+                                <center><h3 className="fade-in">Total Selected: {AllSelectedProduct.length}</h3></center>
+
                                 <div className="d-flex justify-content-center my-4">
-                                    <div className="bg-light border rounded shadow-lg px-4 py-3 text-center" style={{ maxWidth: "400px" }}>
+                                    <div className="bg-light border rounded shadow-lg px-4 py-3 text-center total-price-box scale-in">
                                         <h5 className="mb-2 text-uppercase text-secondary">Total Price</h5>
                                         <h3 className="text-success fw-bold">{formattedTotal}</h3>
                                         <p className="text-muted small">Including all discounts</p>
                                     </div>
                                 </div>
 
-                                <div className="d-grid justify-content-center mb-3">
-                                    <Button variant="danger" onClick={handleRemoveAllProducts}>
-                                        <b>Remove All Products</b>
+                                <div className="d-grid justify-content-center mb-3 button-stagger">
+                                    <Button variant="danger" className="stagger-item" onClick={handleRemoveAllProducts}>
+                                        🗑️ <b>Remove All</b>
                                     </Button>
-                                    <Button className='mt-3' variant="success" onClick={() => setShowModal(true)}>
-                                        <b>Place Order</b>
+                                    <Button className="mt-3 stagger-item" variant="success" onClick={() => setShowModal(true)}>
+                                        🧾 <b>Place Order</b>
                                     </Button>
                                 </div>
                             </>

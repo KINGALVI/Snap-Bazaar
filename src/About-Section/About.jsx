@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 
 const About = () => {
     return (
-        <Container className="py-5 text-center">
+        <Container className="py-5 text-center fade-in-bounce">
             <h2 className="mb-4">🛍️ About Snap Bazaar</h2>
 
             <Row className="justify-content-center">
