@@ -69,14 +69,30 @@ button:hover {
     transition: transform 0.4s ease-in-out;
 }
 
-@keyframes shimmer {
+@keyframes coinGrowShrink {
     0% {
-        background-position: -200% 0;
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    75% {
+        transform: scale(1.2);
     }
 
     100% {
-        background-position: 200% 0;
+        transform: scale(1);
     }
+}
+
+.coin-pulse {
+    animation: coinGrowShrink 2s ease-in-out;
 }
 
 /* Logo Hover Animation */
@@ -125,14 +141,63 @@ button:hover {
     color: #007bff;
 }
 
-@keyframes coinGrowShrink {
-  0%   { transform: scale(1); }
-  25%   { transform: scale(1.2); }
-  50%  { transform: scale(1.3); }
-  75%  { transform: scale(1.2);}
-  100% { transform: scale(1); }
+/* Carousel Hero Image Zoom */
+.carousel-hero-img {
+    transition: transform 6s ease;
 }
 
-.coin-pulse {
-  animation: coinGrowShrink 2s ease-in-out;
+.carousel-hero-img:hover {
+    transform: scale(1.05);
+}
+
+/* Carousel Button Click Animation */
+.carousel-button-clicked {
+    animation: buttonPulse 0.4s ease-in-out;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Carousel Text Fade-In */
+.carousel-fade-in {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel-caption-center {
+    position: absolute;
+    right: 15%;
+    bottom: 8rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: var(--bs-carousel-caption-color);
+    text-align: center;
+}
+
+.mobile-carousel-button {
+    border-radius: 6px;
+    min-width: 120px;
 }
