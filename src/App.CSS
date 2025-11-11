@@ -38,19 +38,23 @@ button:hover {
     color: white;
 }
 
-/* Fade-In Animation */
-.fade-in {
-    animation: fadeIn 0.8s ease-in-out;
+/* Fade-in with bounce for empty state */
+.fade-in-bounce {
+    animation: fadeBounce 0.8s ease-out;
 }
 
-@keyframes fadeIn {
-    from {
+@keyframes fadeBounce {
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    to {
+    60% {
         opacity: 1;
+        transform: translateY(-10px);
+    }
+
+    100% {
         transform: translateY(0);
     }
 }
@@ -251,27 +255,6 @@ body {
 /* Empty State Padding Fix */
 .empty-state {
     padding: 2rem 1rem;
-}
-
-/* Fade-in with bounce for empty state */
-.fade-in-bounce {
-    animation: fadeBounce 0.8s ease-out;
-}
-
-@keyframes fadeBounce {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
 }
 
 /* Scale-in for total price box */

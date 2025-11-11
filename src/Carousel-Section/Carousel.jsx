@@ -52,7 +52,7 @@ const SnapBazaarCarousel = ({ handelSetcoin, triggerCoinPulse }) => {
     return (
         <Carousel fade interval={6000} className="carousel-wrapper fade-in-bounce">
             {slides.map((slide, index) => (
-                <Carousel.Item key={index}>
+                <Carousel.Item className="fade-in-bounce" key={index}>
                     <div
                         className="bg-dark text-white m-2 shadow-lg"
                         style={{ borderRadius: '12px', overflow: 'hidden' }}
