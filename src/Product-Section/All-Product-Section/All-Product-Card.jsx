@@ -52,12 +52,21 @@ const All_Product_Card = ({
 
     return (
         <section className="d-flex justify-content-center align-items-center">
-            <Card className={`${cardClass} product-card`} style={{ width: "25rem", borderRadius: "10px" }}>
+            <Card
+                className={`${cardClass} product-card ${isOutOfStock ? "out-of-stock-pulse" : "fade-in-up"}`}
+                style={{ width: "25rem", borderRadius: "10px" }}
+            >
                 <center>
                     <Card.Img
-                        style={{ height: "300px", width: "300px", filter: isOutOfStock ? "grayscale(100%)" : "none" }}
+                        style={{
+                            height: "300px",
+                            width: "300px",
+                            filter: isOutOfStock ? "grayscale(100%)" : "none",
+                            transition: "transform 0.4s ease",
+                        }}
                         variant="top"
                         src={image}
+                        className="product-image"
                     />
                 </center>
 
@@ -87,7 +96,13 @@ const All_Product_Card = ({
                         <center><h4>Tags</h4></center>
                         <span className="d-flex justify-content-center gap-3">
                             {tags.map((tag, idx) => (
-                                <p key={idx} style={{ cursor: "pointer" }} className="text-decoration-underline text-primary">#{tag}</p>
+                                <p
+                                    key={idx}
+                                    style={{ cursor: "pointer" }}
+                                    className="text-decoration-underline text-primary tag-hover"
+                                >
+                                    #{tag}
+                                </p>
                             ))}
                         </span>
 
@@ -104,7 +119,12 @@ const All_Product_Card = ({
                     </div>
 
                     <center>
-                        <Button variant="success" onClick={handelSingelPlayer} disabled={isOutOfStock}>
+                        <Button
+                            variant="success"
+                            onClick={handelSingelPlayer}
+                            disabled={isOutOfStock}
+                            className="add-to-cart-btn"
+                        >
                             <b>{isOutOfStock ? "Out of Stock" : "Add to Cart"}</b>
                         </Button>
                     </center>
