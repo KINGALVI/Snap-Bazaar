@@ -5,7 +5,7 @@ import About from '../About-Section/About';
 import NotFound from '../404-Section/404-Page';
 import Footer from '../Footer-Section/Footer';
 
-const AppRoutes = ({ API, handelRemovecoin, Coin, handelSetcoin, triggerCoinPulse }) => {
+const AppRoutes = ({ API }) => {
   return (
     <>
       <Routes>
@@ -13,27 +13,14 @@ const AppRoutes = ({ API, handelRemovecoin, Coin, handelSetcoin, triggerCoinPuls
           path="/"
           element={
             <>
-              <Carousel
-                handelSetcoin={handelSetcoin}
-                triggerCoinPulse={triggerCoinPulse}
-              />
-              <All_Product_Container
-                API={API}
-                handelRemovecoin={handelRemovecoin}
-                Coin={Coin}
-              />
+              <Carousel />
+              <All_Product_Container API={API} />
             </>
           }
         />
         <Route
           path="/cart"
-          element={
-            <All_Product_Container
-              API={API}
-              handelRemovecoin={handelRemovecoin}
-              Coin={Coin}
-            />
-          }
+          element={<All_Product_Container API={API} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />

@@ -2,23 +2,23 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
+import { useSnapBazaar } from '../../Context/Context';
 
-const All_Product_Card = ({
-    AllProduct,
-    handelRemovecoin,
-    handelSelectedProduct,
-    Coin,
-    AllSelectedProduct,
-    productStockMap
-}) => {
+const All_Product_Card = ({ AllProduct, productStockMap }) => {
+    const {
+        Coin,
+        handelRemovecoin,
+        handelSelectedProduct,
+        AllSelectedProduct,
+        triggerCoinPulse, // ✅ Added for animation
+    } = useSnapBazaar();
+
     const {
         image, name, description, category, brand, price, discount,
         color, warranty, stock, rating, tags, id
     } = AllProduct;
 
-    // ✅ Count selected and ordered units
     const selectedCount = AllSelectedProduct.filter(p => p.id === id).length;
     const orderedCount = productStockMap?.[id] || 0;
     const totalCount = selectedCount + orderedCount;
@@ -45,9 +45,9 @@ const All_Product_Card = ({
 
         handelSelectedProduct(AllProduct);
         handelRemovecoin();
+        triggerCoinPulse(); // ✅ Trigger coin animation
     };
 
-    // ✅ Conditional class for out-of-stock styling
     const cardClass = `bg-white text-dark shadow-lg m-5 ${isOutOfStock ? "border-danger opacity-75" : ""}`;
 
     return (
@@ -132,15 +132,6 @@ const All_Product_Card = ({
             </Card>
         </section>
     );
-};
-
-All_Product_Card.propTypes = {
-    AllProduct: PropTypes.object.isRequired,
-    handelRemovecoin: PropTypes.func.isRequired,
-    handelSelectedProduct: PropTypes.func.isRequired,
-    AllSelectedProduct: PropTypes.array.isRequired,
-    Coin: PropTypes.number.isRequired,
-    productStockMap: PropTypes.object.isRequired
 };
 
 export default All_Product_Card;

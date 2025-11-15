@@ -1,16 +1,17 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import PropTypes from 'prop-types';
+import { useSnapBazaar } from '../../../Context/Context';
 
-const Delete_Modal = ({ show, handleClose, handleRemoveProduct, SelectedProduct }) => {
+const Delete_Modal = ({ show, handleClose, SelectedProduct }) => {
+    const { handleRemoveProduct } = useSnapBazaar();
+
     return (
         <Modal show={show} onHide={handleClose}>
-
             <Modal.Header className="d-flex justify-content-center">
                 <Modal.Title>Remove Product</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body> 
+            <Modal.Body>
                 Are you sure you want to remove <b>{SelectedProduct.name}</b> from the product list?
             </Modal.Body>
 
@@ -29,16 +30,8 @@ const Delete_Modal = ({ show, handleClose, handleRemoveProduct, SelectedProduct 
                     Cancel
                 </Button>
             </Modal.Footer>
-
         </Modal>
     );
-};
-
-Delete_Modal.propTypes = {
-    show: PropTypes.bool.isRequired,
-    handleClose: PropTypes.func.isRequired,
-    handleRemoveProduct: PropTypes.func.isRequired,
-    SelectedProduct: PropTypes.object.isRequired,
 };
 
 export default Delete_Modal;

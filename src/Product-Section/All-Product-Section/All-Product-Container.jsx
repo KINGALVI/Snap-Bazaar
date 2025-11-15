@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
@@ -7,36 +6,21 @@ import All_Product_Card from './All-Product-Card';
 import Selected_Product_Container from '../Selected-Product-Section/Selected-Product-Container';
 import OrderModal from '../../Order-Section/Order-Modal';
 import { toast } from 'react-toastify';
+import { useSnapBazaar } from '../../Context/Context';
 
-const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
+const All_Product_Container = ({ API }) => {
+    const {
+        Coin,
+        handelRemovecoin,
+        handelSelectedProduct,
+        AllSelectedProduct,
+        handleRemoveProduct,
+        handleRemoveAllProducts,
+    } = useSnapBazaar();
+
     const [activeSection, setActiveSection] = useState("available");
-    const [AllSelectedProduct, setSelectedProduct] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [productStockMap, setProductStockMap] = useState({}); // ✅ new state
-
-    const handelSelectedProduct = (AllProduct) => {
-        const productWithUniqueId = {
-            ...AllProduct,
-            selection_id: crypto.randomUUID(),
-        };
-        setSelectedProduct([...AllSelectedProduct, productWithUniqueId]);
-    };
-
-    const handleRemoveProduct = (ProductToRemove) => {
-        const UpdatedProductList = AllSelectedProduct.filter(
-            SelectedProduct => SelectedProduct.selection_id !== ProductToRemove.selection_id
-        );
-        setSelectedProduct(UpdatedProductList);
-    };
-
-    const handleRemoveAllProducts = () => {
-        setSelectedProduct([]);
-        toast.info("All selected products have been removed.", {
-            position: "top-center",
-            autoClose: 3000,
-            theme: "colored",
-        });
-    };
+    const [productStockMap, setProductStockMap] = useState({});
 
     const handleConfirmOrder = () => {
         const updatedStockMap = { ...productStockMap };
@@ -47,7 +31,13 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
         });
 
         setProductStockMap(updatedStockMap);
-        setSelectedProduct([]);
+        handleRemoveAllProducts();
+
+        toast.success("🎉 Order placed successfully! Your products are on the way.", {
+            position: "top-center",
+            autoClose: 4000,
+            theme: "colored",
+        });
     };
 
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {
@@ -62,7 +52,7 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
 
     return (
         API.length === 0 ?
-            <> <center className='m-5 p-5'>Loading...</center> </>
+            <center className='m-5 p-5'>Loading...</center>
             :
             <>
                 <br />
@@ -96,17 +86,15 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                         <Row className="g-4" xs={1} md={2}>
                             {API.map((AllProduct, idx) => (
                                 <Col key={idx} className="fade-in-bounce">
-                                    <div>
-                                        <All_Product_Card
-                                            AllProduct={AllProduct}
-                                            handelRemovecoin={handelRemovecoin}
-                                            handelSelectedProduct={handelSelectedProduct}
-                                            Coin={Coin}
-                                            handleRemoveProduct={handleRemoveProduct}
-                                            AllSelectedProduct={AllSelectedProduct}
-                                            productStockMap={productStockMap}
-                                        />
-                                    </div>
+                                    <All_Product_Card
+                                        AllProduct={AllProduct}
+                                        handelRemovecoin={handelRemovecoin}
+                                        handelSelectedProduct={handelSelectedProduct}
+                                        Coin={Coin}
+                                        handleRemoveProduct={handleRemoveProduct}
+                                        AllSelectedProduct={AllSelectedProduct}
+                                        productStockMap={productStockMap}
+                                    />
                                 </Col>
                             ))}
                         </Row>
@@ -156,12 +144,6 @@ const All_Product_Container = ({ API, handelRemovecoin, Coin }) => {
                 )}
             </>
     );
-};
-
-All_Product_Container.propTypes = {
-    API: PropTypes.array.isRequired,
-    handelRemovecoin: PropTypes.func.isRequired,
-    Coin: PropTypes.number.isRequired,
 };
 
 export default All_Product_Container;

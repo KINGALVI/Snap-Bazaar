@@ -1,18 +1,17 @@
 import Button from 'react-bootstrap/Button';
-import PropTypes from 'prop-types';
 
 const OrderConfirmation = ({ onClose }) => {
     return (
-        <div className="text-center py-4">
-            <h4 className="text-success">✅ Order Confirmed!</h4>
-            <p>Your delivery location has been saved successfully !! You will get your product on time !!</p>
-            <Button variant="primary" onClick={onClose}>Close</Button>
+        <div className="text-center py-4 fade-in-bounce">
+            <h4 className="text-success fw-bold">✅ Order Confirmed!</h4>
+            <p className="text-muted">
+                Your delivery location has been saved successfully. Your products will arrive on time!
+            </p>
+            <Button variant="primary" onClick={onClose}>
+                Close
+            </Button>
         </div>
     );
-};
-
-OrderConfirmation.propTypes = {
-    onClose: PropTypes.func.isRequired,
 };
 
 export default OrderConfirmation;

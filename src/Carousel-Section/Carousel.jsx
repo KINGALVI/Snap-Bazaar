@@ -1,8 +1,10 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
-import PropTypes from 'prop-types';
+import { useSnapBazaar } from '../Context/Context';
 
-const SnapBazaarCarousel = ({ handelSetcoin, triggerCoinPulse }) => {
+const SnapBazaarCarousel = () => {
+    const { handelSetcoin, triggerCoinPulse } = useSnapBazaar();
+
     const handleClick = () => {
         handelSetcoin();
         triggerCoinPulse();
@@ -105,11 +107,6 @@ const SnapBazaarCarousel = ({ handelSetcoin, triggerCoinPulse }) => {
             ))}
         </Carousel>
     );
-};
-
-SnapBazaarCarousel.propTypes = {
-    handelSetcoin: PropTypes.func.isRequired,
-    triggerCoinPulse: PropTypes.func.isRequired,
 };
 
 export default SnapBazaarCarousel;
