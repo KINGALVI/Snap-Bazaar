@@ -33,7 +33,6 @@ export const SnapBazaarProvider = ({ children }) => {
 
     const handleConfirmOrder = () => {
         setSelectedProduct([]);
-        // You can add more logic here if needed
     };
 
     return (
@@ -56,5 +55,4 @@ export const SnapBazaarProvider = ({ children }) => {
     );
 };
 
-// ✅ This is the missing export you need
 export const useSnapBazaar = () => useContext(SnapBazaarContext);

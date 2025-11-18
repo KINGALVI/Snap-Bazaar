@@ -11,7 +11,7 @@ const All_Product_Card = ({ AllProduct, productStockMap }) => {
         handelRemovecoin,
         handelSelectedProduct,
         AllSelectedProduct,
-        triggerCoinPulse, // ✅ Added for animation
+        triggerCoinPulse,
     } = useSnapBazaar();
 
     const {
@@ -45,7 +45,7 @@ const All_Product_Card = ({ AllProduct, productStockMap }) => {
 
         handelSelectedProduct(AllProduct);
         handelRemovecoin();
-        triggerCoinPulse(); // ✅ Trigger coin animation
+        triggerCoinPulse();
     };
 
     const cardClass = `bg-white text-dark shadow-lg m-5 ${isOutOfStock ? "border-danger opacity-75" : ""}`;
