@@ -4,11 +4,10 @@ import { createContext, useContext, useState } from 'react';
 const SnapBazaarContext = createContext();
 
 export const SnapBazaarProvider = ({ children }) => {
-    const [Coin, setCoin] = useState(5);
+    const [Coin, setCoin] = useState(0);
     const [coinPulse, setCoinPulse] = useState(false);
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
-    const [productStockMap, setProductStockMap] = useState({}); // ✅ Track confirmed purchases
-
+    const [productStockMap, setProductStockMap] = useState({});
     const handelSetcoin = () => setCoin(prev => prev + 1);
     const handelRemovecoin = () => setCoin(prev => (prev > 0 ? prev - 1 : 0));
 
@@ -26,9 +25,11 @@ export const SnapBazaarProvider = ({ children }) => {
         setSelectedProduct(prev =>
             prev.filter(p => p.selection_id !== productToRemove.selection_id)
         );
+        setCoin(prev => prev + 1);
     };
 
     const handleRemoveAllProducts = () => {
+        setCoin(prev => prev + AllSelectedProduct.length);
         setSelectedProduct([]);
     };
 
