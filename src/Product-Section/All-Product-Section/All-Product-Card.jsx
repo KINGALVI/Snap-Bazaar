@@ -7,11 +7,11 @@ import { useSnapBazaar } from '../../Context/Context';
 
 const All_Product_Card = ({ AllProduct }) => {
     const {
-        Coin,
-        handelRemovecoin,
+        Dollar,
+        deductDollar,
+        triggerDollarPulse,
         handelSelectedProduct,
         AllSelectedProduct,
-        triggerCoinPulse,
         productStockMap,
     } = useSnapBazaar();
 
@@ -25,7 +25,9 @@ const All_Product_Card = ({ AllProduct }) => {
     const totalCount = selectedCount + orderedCount;
     const isOutOfStock = totalCount >= stock;
 
-    const handelSingelPlayer = () => {
+    const discountedPrice = price * (1 - discount / 100);
+
+    const handleAddToCart = () => {
         if (isOutOfStock) {
             toast.error("Sorry! This product is out of stock.", {
                 position: "top-center",
@@ -35,8 +37,8 @@ const All_Product_Card = ({ AllProduct }) => {
             return;
         }
 
-        if (Coin === 0) {
-            toast.error("You don't have enough Coins. Please add Credit to purchase a product.", {
+        if (Dollar < discountedPrice) {
+            toast.error("❌ Not enough balance. Please add more dollars.", {
                 position: "top-center",
                 autoClose: 3000,
                 theme: "colored",
@@ -45,8 +47,14 @@ const All_Product_Card = ({ AllProduct }) => {
         }
 
         handelSelectedProduct(AllProduct);
-        handelRemovecoin();
-        triggerCoinPulse();
+        deductDollar(discountedPrice);
+        triggerDollarPulse();
+
+        toast.success("✅ Product added to cart!", {
+            position: "top-center",
+            autoClose: 2000,
+            theme: "colored",
+        });
     };
 
     const cardClass = `bg-white text-dark shadow-lg m-5 ${isOutOfStock ? "border-danger opacity-75" : ""}`;
@@ -122,7 +130,7 @@ const All_Product_Card = ({ AllProduct }) => {
                     <center>
                         <Button
                             variant="success"
-                            onClick={handelSingelPlayer}
+                            onClick={handleAddToCart}
                             disabled={isOutOfStock}
                             className="add-to-cart-btn"
                         >

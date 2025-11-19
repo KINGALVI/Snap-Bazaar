@@ -1,7 +1,6 @@
 import Selected_Product_Card from './Selected-Product-Card/Selected-Product-Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
 import { useSnapBazaar } from '../../Context/Context';
 
 const Selected_Product_Container = () => {
@@ -26,12 +25,6 @@ const Selected_Product_Container = () => {
                             </Col>
                         ))}
                     </Row>
-
-                    <div className="text-center mt-4">
-                        <Button variant="danger">
-                            Remove All Selected Products
-                        </Button>
-                    </div>
 
                 </>
             )}
