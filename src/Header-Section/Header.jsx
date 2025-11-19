@@ -4,14 +4,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import { FaDollarSign } from "react-icons/fa6";
 import TopLogo from "../../public/Logo-&-OtherPicture/Snap-Bazaar-Brand.png";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSnapBazaar } from '../Context/Context';
 import LoginModal from '../Authentication/Authentication';
 
 function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const {
     Dollar,
     dollarPulse,
@@ -20,9 +23,17 @@ function Header() {
   } = useSnapBazaar();
 
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleLogout = () => {
     window.location.reload();
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      navigate(`/cart?search=${encodeURIComponent(searchTerm.trim())}`);
+      setSearchTerm("");
+    }
   };
 
   return (
@@ -59,6 +70,18 @@ function Header() {
               <b>About Us</b>
             </Nav.Link>
           </Nav>
+
+          {/* Search Input */}
+          <InputGroup className="me-3" style={{ maxWidth: '250px' }}>
+            <Form.Control
+              type="text"
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+            />
+            <Button variant="outline-success" onClick={handleSearch}>Search</Button>
+          </InputGroup>
 
           {/* Login / Logout Button */}
           <div className="d-flex align-items-center gap-3">

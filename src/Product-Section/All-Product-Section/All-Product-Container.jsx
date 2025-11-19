@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
@@ -19,6 +20,10 @@ const All_Product_Container = ({ API }) => {
         isLoggedIn,
         loginUser,
     } = useSnapBazaar();
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const searchQuery = searchParams.get("search")?.toLowerCase() || "";
 
     const [activeSection, setActiveSection] = useState("available");
     const [showModal, setShowModal] = useState(false);
@@ -69,6 +74,10 @@ const All_Product_Container = ({ API }) => {
         currency: 'USD',
     }).format(totalPrice);
 
+    const filteredProducts = API.filter(product =>
+        product.name.toLowerCase().includes(searchQuery)
+    );
+
     return (
         API.length === 0 ?
             <center className='m-5 p-5'>Loading...</center>
@@ -101,20 +110,34 @@ const All_Product_Container = ({ API }) => {
                 {/* Available Products */}
                 {activeSection === "available" ? (
                     <section>
-                        <center><h3 className="mb-4 fade-in-bounce">Total {API.length} Products Available</h3></center>
-                        <Row className="g-4" xs={1} md={2}>
-                            {API.map((AllProduct, idx) => (
-                                <Col key={idx} className="fade-in-bounce">
-                                    <All_Product_Card
-                                        AllProduct={AllProduct}
-                                        handelSelectedProduct={handelSelectedProduct}
-                                        AllSelectedProduct={AllSelectedProduct}
-                                        handleRemoveProduct={handleRemoveProduct}
-                                        productStockMap={productStockMap}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
+                        <center>
+                            <h3 className="mb-4 fade-in-bounce">
+                                {searchQuery
+                                    ? `Search Results for "${searchQuery}"`
+                                    : `Total ${API.length} Products Available`}
+                            </h3>
+                        </center>
+
+                        {filteredProducts.length === 0 ? (
+                            <div className="text-center mt-5 fade-in">
+                                <h4>🔍 No products found for "<span className="text-primary">{searchQuery}</span>"</h4>
+                                <p className="text-muted">Try a different keyword or clear your search.</p>
+                            </div>
+                        ) : (
+                            <Row className="g-4" xs={1} md={2}>
+                                {filteredProducts.map((AllProduct, idx) => (
+                                    <Col key={idx} className="fade-in-bounce">
+                                        <All_Product_Card
+                                            AllProduct={AllProduct}
+                                            handelSelectedProduct={handelSelectedProduct}
+                                            AllSelectedProduct={AllSelectedProduct}
+                                            handleRemoveProduct={handleRemoveProduct}
+                                            productStockMap={productStockMap}
+                                        />
+                                    </Col>
+                                ))}
+                            </Row>
+                        )}
                     </section>
                 ) : (
                     <>
