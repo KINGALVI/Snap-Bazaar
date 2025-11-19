@@ -42,7 +42,7 @@ Users have a dollar balance that updates with pulse animation upon purchase. Ord
 
 ## 🚀 Getting Started
 
-To run Snap Bazaar locally:
+To run Snap Bazaar locally you have to clone it :
 
 ```bash
 git clone https://github.com/KINGALVI/Snap-Bazaar.git
