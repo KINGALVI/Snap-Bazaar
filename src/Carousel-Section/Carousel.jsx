@@ -10,7 +10,6 @@ const SnapBazaarCarousel = () => {
 
     const handleClick = () => {
         setShowModal(true);
-        triggerDollarPulse();
     };
 
     const slides = [
