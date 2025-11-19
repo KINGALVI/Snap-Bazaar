@@ -85,7 +85,6 @@ const All_Product_Container = ({ API }) => {
             <>
                 <br />
 
-                {/* Section Toggle */}
                 <section className="d-flex justify-content-center mb-3 fade-in-bounce">
                     <span className="pe-2">
                         <Button
@@ -107,7 +106,6 @@ const All_Product_Container = ({ API }) => {
                     </span>
                 </section>
 
-                {/* Available Products */}
                 {activeSection === "available" ? (
                     <section>
                         <center>

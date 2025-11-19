@@ -40,7 +40,6 @@ function Header() {
     <Navbar expand="lg" className="d-flex justify-content-center bg-white shadow-sm sticky-top">
       <Container>
 
-        {/* Brand Logo + Name */}
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2 logo-hover">
           <Image
             src={TopLogo}
@@ -51,7 +50,6 @@ function Header() {
           <span className="fw-bold fs-4 text-primary">Snap Bazaar</span>
         </Navbar.Brand>
 
-        {/* Mobile Dollar Box */}
         <div className={`d-block d-md-none fs-6 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
           ${Dollar.toFixed(2)} <FaDollarSign size={18} color="green" />
         </div>
@@ -71,7 +69,6 @@ function Header() {
             </Nav.Link>
           </Nav>
 
-          {/* Login / Logout Button */}
           <div className="d-flex align-items-center gap-3">
             <div className={`d-none d-md-flex fs-5 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
               ${Dollar.toFixed(0)} <FaDollarSign size={24} color="green" />
@@ -94,7 +91,6 @@ function Header() {
           />
         </Navbar.Collapse>
 
-        {/* Search Input */}
       </Container>
       <InputGroup className="me-3" style={{ maxWidth: '250px' }}>
         <Form.Control

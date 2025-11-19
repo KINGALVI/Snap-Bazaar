@@ -103,27 +103,29 @@ const All_Product_Card = ({ AllProduct }) => {
 
                         <br />
                         <center><h4>Tags</h4></center>
-                        <span className="d-flex justify-content-center gap-3">
+                        <div className="d-flex flex-wrap justify-content-center gap-2 mt-2">
                             {tags.map((tag, idx) => (
                                 <p
                                     key={idx}
                                     style={{ cursor: "pointer" }}
-                                    className="text-decoration-underline text-primary tag-hover"
+                                    className="text-decoration-underline text-primary tag-hover mb-1"
                                 >
                                     #{tag}
                                 </p>
                             ))}
-                        </span>
+                        </div>
 
-                        <div className={isOutOfStock ? "d-grid justify-content-center pb-3" : "d-flex justify-content-between"}>
+                        <div className={`pb-3 ${isOutOfStock ? "d-grid justify-content-center" : "d-flex flex-column flex-md-row justify-content-between align-items-center gap-2"}`}>
                             {isOutOfStock ? (
-                                <p className="text-danger"><b>Sorry! This product is out of stock.</b></p>
+                                <p className="text-danger text-center"><b>Sorry! This product is out of stock.</b></p>
                             ) : (
-                                <span><b>In Stock:</b> {stock - totalCount}</span>
+                                <>
+                                    <span className="text-center text-md-start"><b>In Stock:</b> {stock - totalCount}</span>
+                                    <span className="d-flex align-items-center justify-content-center justify-content-md-start">
+                                        <b>Rating:</b> <FaStar className="text-warning ms-1" /> {rating}
+                                    </span>
+                                </>
                             )}
-                            <span className="d-flex align-items-center">
-                                <b>Rating:</b> <FaStar className="text-warning ms-1" /> {rating}
-                            </span>
                         </div>
                     </div>
 
