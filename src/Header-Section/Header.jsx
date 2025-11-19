@@ -37,7 +37,7 @@ function Header() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-white shadow-sm sticky-top">
+    <Navbar expand="lg" className="d-flex justify-content-center bg-white shadow-sm sticky-top">
       <Container>
 
         {/* Brand Logo + Name */}
@@ -71,18 +71,6 @@ function Header() {
             </Nav.Link>
           </Nav>
 
-          {/* Search Input */}
-          <InputGroup className="me-3" style={{ maxWidth: '250px' }}>
-            <Form.Control
-              type="text"
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-            />
-            <Button variant="outline-success" onClick={handleSearch}>Search</Button>
-          </InputGroup>
-
           {/* Login / Logout Button */}
           <div className="d-flex align-items-center gap-3">
             <div className={`d-none d-md-flex fs-5 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
@@ -98,15 +86,26 @@ function Header() {
               </Button>
             )}
           </div>
-        </Navbar.Collapse>
-      </Container>
 
-      {/* Login Modal */}
-      <LoginModal
-        show={showLoginModal}
-        handleClose={() => setShowLoginModal(false)}
-        handleLogin={loginUser}
-      />
+          <LoginModal
+            show={showLoginModal}
+            handleClose={() => setShowLoginModal(false)}
+            handleLogin={loginUser}
+          />
+        </Navbar.Collapse>
+
+        {/* Search Input */}
+      </Container>
+      <InputGroup className="me-3" style={{ maxWidth: '250px' }}>
+        <Form.Control
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+        />
+        <Button variant="outline-success" onClick={handleSearch}>Search</Button>
+      </InputGroup>
     </Navbar>
   );
 }

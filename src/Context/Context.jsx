@@ -25,8 +25,8 @@ export const SnapBazaarProvider = ({ children }) => {
 
     const loginUser = (name, password) => {
         if (
-            name === "alvi" &&
-            password === "alvi"
+            name === "Devoloper ALVI" &&
+            password === "devoloper alvi"
         ) {
             setIsLoggedIn(true);
             return true;

@@ -55,6 +55,13 @@ const LoginModal = ({ show, handleClose, handleLogin }) => {
         <Button variant="secondary" onClick={handleClose}>Cancel</Button>
         <Button variant="primary" onClick={handleSubmit}>Login</Button>
       </Modal.Footer>
+      <center>
+        <b>
+          Name : Devoloper ALVI <br />
+          Password : devoloper alvi
+        </b>
+      </center>
+      <br /><br />
     </Modal>
   );
 };
