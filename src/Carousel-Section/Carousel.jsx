@@ -24,7 +24,7 @@ const SnapBazaarCarousel = () => {
                     and unbeatable value await. Start your shopping journey now!
                 </b>
             ),
-            button: "Claim Free Credit",
+            button: "Add Money",
         },
         {
             image: "/Logo-&-OtherPicture/E-commerce-Carousel-Picture-2.jpeg",
@@ -37,7 +37,7 @@ const SnapBazaarCarousel = () => {
                     Shop smarter,<br /> live better.
                 </b>
             ),
-            button: "Claim Free Credit",
+            button: "Add Money",
         },
         {
             image: "/Logo-&-OtherPicture/E-commerce-Carousel-Picture-3.jpeg",
@@ -49,7 +49,7 @@ const SnapBazaarCarousel = () => {
                     Your next favorite product is just a click away—explore Snap Bazaar today!
                 </b>
             ),
-            button: "Claim Free Credit",
+            button: "Add Money",
         },
     ];
 
