@@ -4,16 +4,22 @@ import { createContext, useContext, useState } from 'react';
 const SnapBazaarContext = createContext();
 
 export const SnapBazaarProvider = ({ children }) => {
-    const [Coin, setCoin] = useState(0);
-    const [coinPulse, setCoinPulse] = useState(false);
+    const [Dollar, setDollar] = useState(0);
+    const [dollarPulse, setDollarPulse] = useState(false);
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
     const [productStockMap, setProductStockMap] = useState({});
-    const handelSetcoin = () => setCoin(prev => prev + 1);
-    const handelRemovecoin = () => setCoin(prev => (prev > 0 ? prev - 1 : 0));
 
-    const triggerCoinPulse = () => {
-        setCoinPulse(true);
-        setTimeout(() => setCoinPulse(false), 1000);
+    const addDollar = (amount) => {
+        setDollar(prev => prev + amount);
+    };
+
+    const deductDollar = (amount) => {
+        setDollar(prev => Math.max(prev - amount, 0));
+    };
+
+    const triggerDollarPulse = () => {
+        setDollarPulse(true);
+        setTimeout(() => setDollarPulse(false), 1000);
     };
 
     const handelSelectedProduct = (product) => {
@@ -25,11 +31,14 @@ export const SnapBazaarProvider = ({ children }) => {
         setSelectedProduct(prev =>
             prev.filter(p => p.selection_id !== productToRemove.selection_id)
         );
-        setCoin(prev => prev + 1);
+        setDollar(prev => prev + productToRemove.price * (1 - productToRemove.discount / 100));
     };
 
     const handleRemoveAllProducts = () => {
-        setCoin(prev => prev + AllSelectedProduct.length);
+        const refundAmount = AllSelectedProduct.reduce((sum, product) => {
+            return sum + product.price * (1 - product.discount / 100);
+        }, 0);
+        setDollar(prev => prev + refundAmount);
         setSelectedProduct([]);
     };
 
@@ -48,11 +57,11 @@ export const SnapBazaarProvider = ({ children }) => {
     return (
         <SnapBazaarContext.Provider
             value={{
-                Coin,
-                coinPulse,
-                handelSetcoin,
-                handelRemovecoin,
-                triggerCoinPulse,
+                Dollar,
+                addDollar,
+                deductDollar,
+                dollarPulse,
+                triggerDollarPulse,
                 AllSelectedProduct,
                 handelSelectedProduct,
                 handleRemoveProduct,

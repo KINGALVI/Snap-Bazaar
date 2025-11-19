@@ -2,14 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
-import { TbCoinFilled } from "react-icons/tb";
+import { FaDollarSign } from "react-icons/fa6";
 import TopLogo from "../../public/Logo-&-OtherPicture/Snap-Bazaar-Brand.png";
 import { Link, useLocation } from 'react-router-dom';
 import { useSnapBazaar } from '../Context/Context';
 
 function Header() {
   const location = useLocation();
-  const { Coin, coinPulse } = useSnapBazaar();
+  const { Dollar, dollarPulse } = useSnapBazaar();
 
   return (
     <Navbar expand="lg" className="bg-white shadow-sm sticky-top">
@@ -26,9 +26,9 @@ function Header() {
           <span className="fw-bold fs-4 text-primary">Snap Bazaar</span>
         </Navbar.Brand>
 
-        {/* Mobile Coin Box */}
-        <div className={`coin-box d-block d-md-none fs-6 ${coinPulse ? 'coin-pulse' : ''}`}>
-          {Math.round(Coin)} Coin <TbCoinFilled size={20} color="goldenrod" />
+        {/* Mobile Dollar Box */}
+        <div className={`d-block d-md-none fs-6 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
+          ${Dollar.toFixed(2)} <FaDollarSign size={18} color="green" />
         </div>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -47,9 +47,9 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
 
-        {/* Desktop Coin Box */}
-        <div className={`coin-box d-none d-md-flex fs-5 ${coinPulse ? 'coin-pulse' : ''}`}>
-          {Math.round(Coin)} Coin <TbCoinFilled size={28} color="goldenrod" />
+        {/* Desktop Dollar Box */}
+        <div className={`d-none d-md-flex fs-5 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
+          ${Dollar.toFixed(0)} <FaDollarSign size={24} color="green" />
         </div>
 
       </Container>

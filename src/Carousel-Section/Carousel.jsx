@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import AddDollarModal from '../Dollar/AddDollar';
 import { useSnapBazaar } from '../Context/Context';
 
 const SnapBazaarCarousel = () => {
-    const { handelSetcoin, triggerCoinPulse } = useSnapBazaar();
+    const { addDollar, triggerDollarPulse } = useSnapBazaar();
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
-        handelSetcoin();
-        triggerCoinPulse();
+        setShowModal(true);
+        triggerDollarPulse();
     };
 
     const slides = [
@@ -42,7 +45,7 @@ const SnapBazaarCarousel = () => {
             title: "Snap Bazaar: Where Style Meets Savings!",
             description: (
                 <b>
-                    From essentials to indulgence, find everything you need with exclusive rewards and coin bonuses.
+                    From essentials to indulgence, find everything you need with exclusive rewards and bonuses.
                     Enjoy seamless shopping, curated collections, and personalized recommendations.
                     Your next favorite product is just a click away—explore Snap Bazaar today!
                 </b>
@@ -52,60 +55,70 @@ const SnapBazaarCarousel = () => {
     ];
 
     return (
-        <Carousel fade interval={6000} className="carousel-wrapper fade-in-bounce">
-            {slides.map((slide, index) => (
-                <Carousel.Item className="fade-in-bounce" key={index}>
-                    <div
-                        className="bg-dark text-white m-2 shadow-lg"
-                        style={{ borderRadius: '12px', overflow: 'hidden' }}
-                    >
-                        <img
-                            className="d-block w-100 carousel-hero-img"
-                            src={slide.image}
-                            alt={`Slide ${index + 1}`}
-                            style={{
-                                filter: 'brightness(35%)',
-                                opacity: 0.85,
-                                maxHeight: '600px',
-                                objectFit: 'cover',
-                            }}
-                        />
-                        <Carousel.Caption>
-                            {/* Desktop / Large Screens */}
-                            <div className="d-none d-lg-flex carousel-caption-center">
-                                <div className="text-center">
-                                    <h1 className="pb-3 fw-bold">{slide.title}</h1>
-                                    <div>{slide.description}</div>
-                                    <div className="d-flex justify-content-center pt-3">
-                                        <Button
-                                            variant="outline-light"
-                                            className="m-1 px-4 py-2 fw-bold shadow-sm"
-                                            onClick={handleClick}
-                                        >
-                                            {slide.button}
-                                        </Button>
+        <>
+            <Carousel fade interval={6000} className="carousel-wrapper fade-in-bounce">
+                {slides.map((slide, index) => (
+                    <Carousel.Item className="fade-in-bounce" key={index}>
+                        <div
+                            className="bg-dark text-white m-2 shadow-lg"
+                            style={{ borderRadius: '12px', overflow: 'hidden' }}
+                        >
+                            <img
+                                className="d-block w-100 carousel-hero-img"
+                                src={slide.image}
+                                alt={`Slide ${index + 1}`}
+                                style={{
+                                    filter: 'brightness(35%)',
+                                    opacity: 0.85,
+                                    maxHeight: '600px',
+                                    objectFit: 'cover',
+                                }}
+                            />
+                            <Carousel.Caption>
+                                {/* Desktop / Large Screens */}
+                                <div className="d-none d-lg-flex carousel-caption-center">
+                                    <div className="text-center">
+                                        <h1 className="pb-3 fw-bold">{slide.title}</h1>
+                                        <div>{slide.description}</div>
+                                        <div className="d-flex justify-content-center pt-3">
+                                            <Button
+                                                variant="outline-light"
+                                                className="m-1 px-4 py-2 fw-bold shadow-sm"
+                                                onClick={handleClick}
+                                            >
+                                                {slide.button}
+                                            </Button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Mobile / Tablet */}
-                            <div className="d-flex d-lg-none flex-column align-items-center text-center">
-                                <h2 className="pt-2 fw-bold" style={{ fontSize: '20.5px' }}>{slide.title}</h2>
-                                <div style={{ fontSize: '10.5px', lineHeight: '1.4' }}>{slide.description}</div>
-                                <Button
-                                    variant="outline-light"
-                                    className="mt-2 px-2 py-1 fw-semibold shadow-sm mobile-carousel-button"
-                                    style={{ fontSize: '13px' }}
-                                    onClick={handleClick}
-                                >
-                                    {slide.button}
-                                </Button>
-                            </div>
-                        </Carousel.Caption>
-                    </div>
-                </Carousel.Item>
-            ))}
-        </Carousel>
+                                {/* Mobile / Tablet */}
+                                <div className="d-flex d-lg-none flex-column align-items-center text-center">
+                                    <h2 className="pt-2 fw-bold" style={{ fontSize: '20.5px' }}>{slide.title}</h2>
+                                    <div style={{ fontSize: '10.5px', lineHeight: '1.4' }}>{slide.description}</div>
+                                    <Button
+                                        variant="outline-light"
+                                        className="mt-2 px-2 py-1 fw-semibold shadow-sm mobile-carousel-button"
+                                        style={{ fontSize: '13px' }}
+                                        onClick={handleClick}
+                                    >
+                                        {slide.button}
+                                    </Button>
+                                </div>
+                            </Carousel.Caption>
+                        </div>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+
+            {/* ✅ Dollar Modal */}
+            <AddDollarModal
+                show={showModal}
+                handleClose={() => setShowModal(false)}
+                handleAdd={addDollar}
+                triggerPulse={triggerDollarPulse}
+            />
+        </>
     );
 };
 
