@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import All_Product_Card from './All-Product-Card';
 import Selected_Product_Container from '../Selected-Product-Section/Selected-Product-Container';
 import OrderModal from '../../Order-Section/Order-Modal';
+import RemoveAllConfirmModal from '../Selected-Product-Section/RemoveAllConfirmModal'; // ✅ Make sure path is correct
 import { toast } from 'react-toastify';
 import { useSnapBazaar } from '../../Context/Context';
 
@@ -20,6 +21,7 @@ const All_Product_Container = ({ API }) => {
 
     const [activeSection, setActiveSection] = useState("available");
     const [showModal, setShowModal] = useState(false);
+    const [showRemoveAllModal, setShowRemoveAllModal] = useState(false); // ✅ Modal state
     const [productStockMap, setProductStockMap] = useState({});
 
     const handleConfirmOrder = () => {
@@ -38,6 +40,13 @@ const All_Product_Container = ({ API }) => {
             autoClose: 4000,
             theme: "colored",
         });
+    };
+
+    const handleOpenRemoveAllModal = () => setShowRemoveAllModal(true);
+    const handleCloseRemoveAllModal = () => setShowRemoveAllModal(false);
+    const handleConfirmRemoveAll = () => {
+        handleRemoveAllProducts();
+        handleCloseRemoveAllModal();
     };
 
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {
@@ -119,7 +128,7 @@ const All_Product_Container = ({ API }) => {
                                 </div>
 
                                 <div className="d-grid justify-content-center mb-3 button-stagger">
-                                    <Button variant="danger" className="stagger-item" onClick={handleRemoveAllProducts}>
+                                    <Button variant="danger" className="stagger-item" onClick={handleOpenRemoveAllModal}>
                                         🗑️ <b>Remove All</b>
                                     </Button>
                                     <Button className="mt-3 stagger-item" variant="success" onClick={() => setShowModal(true)}>
@@ -139,6 +148,12 @@ const All_Product_Container = ({ API }) => {
                             show={showModal}
                             handleClose={() => setShowModal(false)}
                             handleConfirm={handleConfirmOrder}
+                        />
+
+                        <RemoveAllConfirmModal
+                            show={showRemoveAllModal}
+                            handleClose={handleCloseRemoveAllModal}
+                            handleConfirm={handleConfirmRemoveAll}
                         />
                     </>
                 )}
