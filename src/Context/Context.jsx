@@ -8,6 +8,7 @@ export const SnapBazaarProvider = ({ children }) => {
     const [dollarPulse, setDollarPulse] = useState(false);
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
     const [productStockMap, setProductStockMap] = useState({});
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ Login state
 
     const addDollar = (amount) => {
         setDollar(prev => prev + amount);
@@ -20,6 +21,17 @@ export const SnapBazaarProvider = ({ children }) => {
     const triggerDollarPulse = () => {
         setDollarPulse(true);
         setTimeout(() => setDollarPulse(false), 1000);
+    };
+
+    const loginUser = (name, password) => {
+        if (
+            name === "alvi" &&
+            password === "alvi"
+        ) {
+            setIsLoggedIn(true);
+            return true;
+        }
+        return false;
     };
 
     const handelSelectedProduct = (product) => {
@@ -68,6 +80,8 @@ export const SnapBazaarProvider = ({ children }) => {
                 handleRemoveAllProducts,
                 handleConfirmOrder,
                 productStockMap,
+                isLoggedIn,           // ✅ exposed
+                loginUser,            // ✅ exposed
             }}
         >
             {children}

@@ -5,23 +5,25 @@ import Button from 'react-bootstrap/Button';
 import All_Product_Card from './All-Product-Card';
 import Selected_Product_Container from '../Selected-Product-Section/Selected-Product-Container';
 import OrderModal from '../../Order-Section/Order-Modal';
-import RemoveAllConfirmModal from '../Selected-Product-Section/RemoveAllConfirmModal'; // ✅ Make sure path is correct
+import RemoveAllConfirmModal from '../Selected-Product-Section/RemoveAllConfirmModal';
+import LoginModal from '../../Authentication/Authentication';
 import { toast } from 'react-toastify';
 import { useSnapBazaar } from '../../Context/Context';
 
 const All_Product_Container = ({ API }) => {
     const {
-        Coin,
-        handelRemovecoin,
         handelSelectedProduct,
         AllSelectedProduct,
         handleRemoveProduct,
         handleRemoveAllProducts,
+        isLoggedIn,
+        loginUser,
     } = useSnapBazaar();
 
     const [activeSection, setActiveSection] = useState("available");
     const [showModal, setShowModal] = useState(false);
-    const [showRemoveAllModal, setShowRemoveAllModal] = useState(false); // ✅ Modal state
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showRemoveAllModal, setShowRemoveAllModal] = useState(false);
     const [productStockMap, setProductStockMap] = useState({});
 
     const handleConfirmOrder = () => {
@@ -47,6 +49,14 @@ const All_Product_Container = ({ API }) => {
     const handleConfirmRemoveAll = () => {
         handleRemoveAllProducts();
         handleCloseRemoveAllModal();
+    };
+
+    const handlePlaceOrderClick = () => {
+        if (!isLoggedIn) {
+            setShowLoginModal(true);
+        } else {
+            setShowModal(true);
+        }
     };
 
     const totalPrice = AllSelectedProduct.reduce((sum, product) => {
@@ -97,11 +107,9 @@ const All_Product_Container = ({ API }) => {
                                 <Col key={idx} className="fade-in-bounce">
                                     <All_Product_Card
                                         AllProduct={AllProduct}
-                                        handelRemovecoin={handelRemovecoin}
                                         handelSelectedProduct={handelSelectedProduct}
-                                        Coin={Coin}
-                                        handleRemoveProduct={handleRemoveProduct}
                                         AllSelectedProduct={AllSelectedProduct}
+                                        handleRemoveProduct={handleRemoveProduct}
                                         productStockMap={productStockMap}
                                     />
                                 </Col>
@@ -131,7 +139,7 @@ const All_Product_Container = ({ API }) => {
                                     <Button variant="danger" className="stagger-item" onClick={handleOpenRemoveAllModal}>
                                         🗑️ <b>Remove All</b>
                                     </Button>
-                                    <Button className="mt-3 stagger-item" variant="success" onClick={() => setShowModal(true)}>
+                                    <Button className="mt-3 stagger-item" variant="success" onClick={handlePlaceOrderClick}>
                                         🧾 <b>Place Order</b>
                                     </Button>
                                 </div>
@@ -154,6 +162,12 @@ const All_Product_Container = ({ API }) => {
                             show={showRemoveAllModal}
                             handleClose={handleCloseRemoveAllModal}
                             handleConfirm={handleConfirmRemoveAll}
+                        />
+
+                        <LoginModal
+                            show={showLoginModal}
+                            handleClose={() => setShowLoginModal(false)}
+                            handleLogin={loginUser}
                         />
                     </>
                 )}
