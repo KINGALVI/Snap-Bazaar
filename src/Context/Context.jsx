@@ -7,6 +7,7 @@ export const SnapBazaarProvider = ({ children }) => {
     const [Coin, setCoin] = useState(5);
     const [coinPulse, setCoinPulse] = useState(false);
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
+    const [productStockMap, setProductStockMap] = useState({}); // ✅ Track confirmed purchases
 
     const handelSetcoin = () => setCoin(prev => prev + 1);
     const handelRemovecoin = () => setCoin(prev => (prev > 0 ? prev - 1 : 0));
@@ -32,6 +33,14 @@ export const SnapBazaarProvider = ({ children }) => {
     };
 
     const handleConfirmOrder = () => {
+        const updatedMap = { ...productStockMap };
+
+        AllSelectedProduct.forEach(product => {
+            const id = product.id;
+            updatedMap[id] = (updatedMap[id] || 0) + 1;
+        });
+
+        setProductStockMap(updatedMap);
         setSelectedProduct([]);
     };
 
@@ -48,6 +57,7 @@ export const SnapBazaarProvider = ({ children }) => {
                 handleRemoveProduct,
                 handleRemoveAllProducts,
                 handleConfirmOrder,
+                productStockMap,
             }}
         >
             {children}

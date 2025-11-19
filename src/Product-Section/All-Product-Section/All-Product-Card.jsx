@@ -5,13 +5,14 @@ import Button from "react-bootstrap/Button";
 import { FaStar } from "react-icons/fa";
 import { useSnapBazaar } from '../../Context/Context';
 
-const All_Product_Card = ({ AllProduct, productStockMap }) => {
+const All_Product_Card = ({ AllProduct }) => {
     const {
         Coin,
         handelRemovecoin,
         handelSelectedProduct,
         AllSelectedProduct,
         triggerCoinPulse,
+        productStockMap,
     } = useSnapBazaar();
 
     const {
