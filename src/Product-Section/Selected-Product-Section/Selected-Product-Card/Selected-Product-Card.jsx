@@ -17,7 +17,18 @@ const Selected_Product_Card = ({ SelectedProduct }) => {
     return (
         <section className="d-flex justify-content-center align-items-center">
             <Card className="bg-white text-dark shadow-lg m-5 product-card" style={{ width: '25rem', borderRadius: '10px' }}>
-                <Card.Img variant="top" src={SelectedProduct.image} className="product-image" />
+                <Card.Img
+                    variant="top"
+                    src={SelectedProduct.image}
+                    className={"product-image img-fluid grayscale"}
+                    style={{
+                        width: "100%",
+                        height: "auto",
+                        maxHeight: "300px",
+                        objectFit: "contain",
+                        transition: "transform 0.4s ease",
+                    }}
+                />
 
                 <Card.Body>
                     <Card.Title>{SelectedProduct.name}</Card.Title>

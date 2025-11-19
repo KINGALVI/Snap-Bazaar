@@ -67,15 +67,16 @@ const All_Product_Card = ({ AllProduct }) => {
             >
                 <center>
                     <Card.Img
-                        style={{
-                            height: "300px",
-                            width: "300px",
-                            filter: isOutOfStock ? "grayscale(100%)" : "none",
-                            transition: "transform 0.4s ease",
-                        }}
                         variant="top"
                         src={image}
-                        className="product-image"
+                        className={`product-image img-fluid ${isOutOfStock ? "grayscale" : ""}`}
+                        style={{
+                            width: "100%",
+                            height: "auto",
+                            maxHeight: "300px",
+                            objectFit: "contain",
+                            transition: "transform 0.4s ease",
+                        }}
                     />
                 </center>
 
