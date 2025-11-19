@@ -92,7 +92,7 @@ function Header() {
         </Navbar.Collapse>
 
       </Container>
-      <InputGroup className="me-3" style={{ maxWidth: '250px' }}>
+      <InputGroup className="me-3 mt-lg-0 mt-3" style={{ maxWidth: '250px' }}>
         <Form.Control
           type="text"
           placeholder="Search products..."
