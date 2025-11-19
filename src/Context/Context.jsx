@@ -8,7 +8,7 @@ export const SnapBazaarProvider = ({ children }) => {
     const [dollarPulse, setDollarPulse] = useState(false);
     const [AllSelectedProduct, setSelectedProduct] = useState([]);
     const [productStockMap, setProductStockMap] = useState({});
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ Login state
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const addDollar = (amount) => {
         setDollar(prev => prev + amount);
@@ -80,8 +80,8 @@ export const SnapBazaarProvider = ({ children }) => {
                 handleRemoveAllProducts,
                 handleConfirmOrder,
                 productStockMap,
-                isLoggedIn,           // ✅ exposed
-                loginUser,            // ✅ exposed
+                isLoggedIn,
+                loginUser,
             }}
         >
             {children}

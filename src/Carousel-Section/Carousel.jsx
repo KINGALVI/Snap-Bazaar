@@ -74,7 +74,7 @@ const SnapBazaarCarousel = () => {
                                 }}
                             />
                             <Carousel.Caption>
-                                {/* Desktop / Large Screens */}
+
                                 <div className="d-none d-lg-flex carousel-caption-center">
                                     <div className="text-center">
                                         <h1 className="pb-3 fw-bold">{slide.title}</h1>
@@ -91,7 +91,6 @@ const SnapBazaarCarousel = () => {
                                     </div>
                                 </div>
 
-                                {/* Mobile / Tablet */}
                                 <div className="d-flex d-lg-none flex-column align-items-center text-center">
                                     <h2 className="pt-2 fw-bold" style={{ fontSize: '20.5px' }}>{slide.title}</h2>
                                     <div style={{ fontSize: '10.5px', lineHeight: '1.4' }}>{slide.description}</div>
@@ -110,7 +109,6 @@ const SnapBazaarCarousel = () => {
                 ))}
             </Carousel>
 
-            {/* ✅ Dollar Modal */}
             <AddDollarModal
                 show={showModal}
                 handleClose={() => setShowModal(false)}
