@@ -384,5 +384,10 @@ body {
 }
 
 .product-image.grayscale {
-  filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.product-image.grayscale:hover {
+    filter: grayscale(0%);
+    transition: filter 0.5s ease;
 }

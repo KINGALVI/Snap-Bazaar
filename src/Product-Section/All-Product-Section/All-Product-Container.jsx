@@ -122,7 +122,7 @@ const All_Product_Container = ({ API }) => {
                                 <p className="text-muted">Try a different keyword or clear your search.</p>
                             </div>
                         ) : (
-                            <Row className="g-4" xs={1} md={2}>
+                            <Row xs={1} md={2} lg={3}>
                                 {filteredProducts.map((AllProduct, idx) => (
                                     <Col key={idx} className="fade-in-bounce">
                                         <All_Product_Card

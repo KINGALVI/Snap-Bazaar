@@ -28,8 +28,8 @@ const LoginModal = ({ show, handleClose, handleLogin }) => {
 
   return (
     <Modal show={show} onHide={handleClose} centered backdrop="static">
-      <Modal.Header closeButton>
-        <Modal.Title>Login For Batter Experience!!</Modal.Title>
+      <Modal.Header>
+        <Modal.Title>Please Login For Full Access !!</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form.Group className="mb-3">
@@ -52,8 +52,8 @@ const LoginModal = ({ show, handleClose, handleLogin }) => {
         </Form.Group>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>Cancel</Button>
         <Button variant="primary" onClick={handleSubmit}>Login</Button>
+        <Button variant="secondary" onClick={handleClose}>Cancel</Button>
       </Modal.Footer>
       <center>
         <b>

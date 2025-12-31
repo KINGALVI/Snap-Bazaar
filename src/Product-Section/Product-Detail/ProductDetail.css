@@ -1,0 +1,16 @@
+.responsive-img {
+  width: 50%;
+  height: auto;
+}
+
+@media (min-width: 768px) { /* md */
+  .responsive-img {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) { /* lg */
+  .responsive-img {
+    max-width: 30%;
+  }
+}

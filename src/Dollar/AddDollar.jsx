@@ -32,20 +32,20 @@ const AddDollarModal = ({ show, handleClose, handleAdd, triggerPulse }) => {
 
     return (
         <Modal show={show} onHide={handleClose} centered backdrop="static">
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title>Add Money</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Control
                     type="text"
-                    placeholder="Enter amount in USD"
+                    placeholder="Enter Amount in Dollar $"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                 />
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>Cancel</Button>
                 <Button variant="success" onClick={handleSubmit}>Add</Button>
+                <Button variant="secondary" onClick={handleClose}>Cancel</Button>
             </Modal.Footer>
         </Modal>
     );

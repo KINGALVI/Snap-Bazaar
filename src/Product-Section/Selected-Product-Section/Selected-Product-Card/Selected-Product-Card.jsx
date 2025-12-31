@@ -3,6 +3,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { useState } from 'react';
 import Delete_Modal from './Delete-Modal';
 import { useSnapBazaar } from '../../../Context/Context';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Selected_Product_Card = ({ SelectedProduct }) => {
     const [show, setShow] = useState(false);
@@ -57,8 +59,14 @@ const Selected_Product_Card = ({ SelectedProduct }) => {
                     </div>
                 </Card.Body>
 
-                <center className="p-3 d-grid justify-content-center">
-                    <div className="ps-1 pt-3">
+                <center className="p-3 d-grid justify-content-center ">
+                    <Button
+                        variant="success"
+                        className="add-to-cart-btn"
+                    >
+                        <Link className="text-light text-decoration-none" to={`/Product-Detail/${SelectedProduct.id}`}><b>Product Details</b></Link>
+                    </Button>
+                    <div className="ms-1 mt-3 mb-3">
                         <MdDeleteForever
                             style={{ cursor: "pointer" }}
                             onClick={handleOpen}

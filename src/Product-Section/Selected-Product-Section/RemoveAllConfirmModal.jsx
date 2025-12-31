@@ -11,11 +11,11 @@ const RemoveAllConfirmModal = ({ show, handleClose, handleConfirm }) => {
                 Are you sure you want to remove all selected products? Your coins will be refunded.
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
                 <Button variant="danger" onClick={handleConfirm}>
                     Yes, Remove All
+                </Button>
+                <Button variant="secondary" onClick={handleClose}>
+                    Cancel
                 </Button>
             </Modal.Footer>
         </Modal>

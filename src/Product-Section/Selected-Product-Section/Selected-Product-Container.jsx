@@ -15,7 +15,7 @@ const Selected_Product_Container = () => {
                 <></>
             ) : (
                 <>
-                    <Row className="g-0 fade-in-bounce" xs={1} md={2}>
+                    <Row className="g-0 fade-in-bounce" xs={1} md={2} lg={3}>
                         {AllSelectedProduct.map((SelectedProduct, idx) => (
                             <Col key={idx}>
                                 <Selected_Product_Card

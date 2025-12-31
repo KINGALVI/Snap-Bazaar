@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "./Product-Image/EchoWave-Wireless-Earbuds.png",
+    "image": "/Product-Image/EchoWave-Wireless-Earbuds.png",
     "name": "EchoWave Wireless Earbuds",
     "category": "Electronics",
     "brand": "EchoWave",
@@ -17,11 +17,12 @@
       "bluetooth",
       "audio",
       "earbuds"
-    ]
+    ],
+    "detail": "The EchoWave Wireless Earbuds are designed to deliver a premium audio experience in a compact and stylish form. Built with advanced Bluetooth 5.2 technology, they ensure seamless connectivity, faster pairing, and stable performance across devices. Featuring active noise cancellation, these earbuds allow you to immerse yourself in music, podcasts, or calls without distractions from the outside world. The ergonomic design provides a secure and comfortable fit, making them ideal for long listening sessions, workouts, or daily commutes. With an impressive 24-hour battery life supported by the charging case, you can enjoy uninterrupted playback throughout the day. The intuitive touch controls let you manage music, adjust volume, answer calls, or activate voice assistants with a simple tap, eliminating the need to reach for your phone. EchoWave has also prioritized durability and convenience, offering IPX5 water resistance to protect against sweat and light rain. The earbuds deliver crisp highs, deep bass, and balanced mids, ensuring a rich and dynamic sound profile suitable for all genres. A built-in microphone with noise reduction enhances call clarity, making conversations smooth and professional. The sleek black finish adds a modern aesthetic, while the lightweight build ensures portability. Backed by a one-year warranty, the EchoWave Wireless Earbuds combine performance, style, and reliability, making them a perfect choice for anyone seeking high-quality wireless audio at an affordable price."
   },
   {
     "id": 2,
-    "image": "./Product-Image/LumaGlow-Smart-Desk.png",
+    "image": "/Product-Image/LumaGlow-Smart-Desk.png",
     "name": "LumaGlow Smart Desk Lamp",
     "category": "Home & Living",
     "brand": "LumaGlow",
@@ -37,11 +38,12 @@
       "smart",
       "USB",
       "home"
-    ]
+    ],
+    "detail": "The LumaGlow Smart Desk Lamp is a modern lighting solution designed to enhance productivity, comfort, and style in any workspace or home environment. Featuring advanced LED technology, it delivers bright yet energy-efficient illumination that reduces eye strain during long hours of reading, studying, or working. The lamp is equipped with ambient light sensors that automatically adjust brightness levels based on surrounding conditions, ensuring optimal lighting at all times without manual intervention. Its adjustable arm and head provide flexibility, allowing you to direct light exactly where you need it, whether for focused tasks or soft ambient glow. The built-in USB charging port adds convenience, enabling you to power smartphones, tablets, or other devices directly from your desk without clutter. With multiple lighting modes and dimming options, the LumaGlow Smart Desk Lamp adapts to different activities, from intense work sessions to relaxing evenings. The sleek white finish complements modern décor, while its compact design saves space on your desk. Constructed with durable materials, it promises longevity and reliability, backed by a two-year warranty for peace of mind. Beyond functionality, the lamp embodies eco-friendly design principles, consuming minimal energy while delivering maximum performance. Whether you are a student, professional, or simply someone who values a well-lit environment, the LumaGlow Smart Desk Lamp combines practicality, innovation, and elegance to elevate your everyday living experience."
   },
   {
     "id": 3,
-    "image": "./Product-Image/TrailFlex-Hiking-Backpack.png",
+    "image": "/Product-Image/TrailFlex-Hiking-Backpack.png",
     "name": "TrailFlex Hiking Backpack",
     "category": "Outdoors",
     "brand": "TrailFlex",
@@ -57,11 +59,12 @@
       "hiking",
       "outdoors",
       "waterproof"
-    ]
+    ],
+    "detail": "The TrailFlex Hiking Backpack is engineered for adventurers who demand durability, comfort, and functionality on every journey. With a spacious 40-liter capacity, it provides ample room for essentials such as clothing, food, hydration packs, and gear, making it ideal for day hikes, weekend trips, or extended outdoor excursions. Crafted from high-quality waterproof materials, the backpack ensures your belongings remain safe and dry even in unpredictable weather conditions. Its ergonomic shoulder straps and padded back panel are designed to reduce strain, offering superior comfort during long treks. The adjustable chest and waist straps provide added stability, distributing weight evenly across the body for improved balance and reduced fatigue. Multiple compartments, including quick-access side pockets and a secure front zipper section, allow for organized storage and easy accessibility. The olive green finish blends seamlessly with natural surroundings, appealing to outdoor enthusiasts who value both style and practicality. Reinforced stitching and rugged zippers enhance durability, ensuring the backpack withstands rough terrain and heavy use. Additional features include hydration bladder compatibility, reflective safety strips for visibility, and compression straps to secure gear tightly. Backed by a three-year warranty, the TrailFlex Hiking Backpack is a reliable companion for hikers, campers, and travelers alike. Whether you are scaling mountains, exploring forests, or navigating urban adventures, TrailFlex delivers the perfect balance of resilience, comfort, and versatility to elevate your outdoor experience."
   },
   {
     "id": 4,
-    "image": "./Product-Image/JavaScript-Mastery-Book.png",
+    "image": "/Product-Image/JavaScript-Mastery-Book.png",
     "name": "JavaScript Mastery Book",
     "category": "Books",
     "brand": "CodeCraft",
@@ -77,11 +80,12 @@
       "JavaScript",
       "coding",
       "learning"
-    ]
+    ],
+    "detail": "The JavaScript Mastery Book by CodeCraft is a complete resource for learners and professionals who want to elevate their skills in modern JavaScript development. Covering everything from the fundamentals to advanced concepts, this book is structured to provide clarity, practical application, and hands-on exercises that reinforce learning. Readers will explore essential topics such as variables, functions, loops, and DOM manipulation, before progressing into more complex areas like ES6+ features, asynchronous programming, promises, and the use of modern frameworks. Real-world examples are integrated throughout, ensuring that concepts are not only understood but can be applied directly to projects. Each chapter includes coding challenges and practice exercises designed to strengthen problem-solving skills and encourage experimentation. The book also emphasizes best practices in clean coding, debugging, and performance optimization, helping readers develop professional-grade applications. With a focus on practical learning, it bridges the gap between theory and implementation, making it suitable for students, self-learners, and working developers. The vibrant red cover symbolizes energy and creativity, aligning with the dynamic nature of JavaScript itself. Backed by CodeCraft’s reputation for quality educational resources, the JavaScript Mastery Book is more than just a guide—it is a roadmap to becoming confident and proficient in one of the world’s most widely used programming languages. Whether you are preparing for interviews, building personal projects, or advancing your career, this book provides the tools and knowledge to achieve mastery."
   },
   {
     "id": 5,
-    "image": "./Product-Image/AeroStride-Running-Shoes.png",
+    "image": "/Product-Image/AeroStride-Running-Shoes.png",
     "name": "AeroStride Running Shoes",
     "category": "Fashion",
     "brand": "AeroStride",
@@ -97,11 +101,12 @@
       "running",
       "fashion",
       "sports"
-    ]
+    ],
+    "detail": "The AeroStride Running Shoes are crafted to deliver exceptional comfort, performance, and style for athletes and casual runners alike. Designed with lightweight, breathable mesh fabric, these shoes keep your feet cool and dry even during intense workouts or long-distance runs. The shock-absorbing soles are engineered with advanced cushioning technology, reducing impact on joints and providing superior support with every stride. Their ergonomic design ensures a snug yet flexible fit, adapting naturally to the movement of your feet. The durable outsole offers excellent traction across various surfaces, making them suitable for both indoor training and outdoor running. With a sleek blue finish, AeroStride Running Shoes combine sporty aesthetics with modern fashion, allowing you to transition seamlessly from the track to everyday wear. The reinforced heel and toe areas enhance durability, while the padded collar and tongue add extra comfort for extended use. Whether you are sprinting, jogging, or walking, these shoes are built to maximize energy return and minimize fatigue. Backed by a four-month warranty, they provide peace of mind and reliability. Ideal for fitness enthusiasts, athletes, or anyone seeking stylish and functional footwear, AeroStride Running Shoes embody the perfect balance of innovation, comfort, and design. They are not just shoes—they are a performance-driven companion that helps you push boundaries, achieve goals, and enjoy every step of your journey."
   },
   {
     "id": 6,
-    "image": "./Product-Image/PureLeaf-Organic-Green-Tea.png",
+    "image": "/Product-Image/PureLeaf-Organic-Green-Tea.png",
     "name": "PureLeaf Organic Green Tea",
     "category": "Grocery",
     "brand": "PureLeaf",
@@ -117,11 +122,12 @@
       "organic",
       "grocery",
       "health"
-    ]
+    ],
+    "detail": "PureLeaf Organic Green Tea is a premium blend sourced directly from the pristine Himalayan farms, where the cool climate and fertile soil create the perfect environment for cultivating nutrient-rich tea leaves. Each box contains 100 individually wrapped tea bags, ensuring freshness and convenience for daily use. Known for its high antioxidant content, this green tea supports overall wellness by boosting metabolism, enhancing immunity, and promoting natural detoxification. The delicate flavor profile combines a refreshing grassy note with a subtle sweetness, making it both soothing and invigorating. PureLeaf emphasizes sustainable farming practices, ensuring that every sip contributes to environmental preservation and ethical sourcing. The tea is free from artificial additives, pesticides, and chemicals, offering a pure and authentic experience. Its calming aroma makes it ideal for morning rituals, afternoon breaks, or evening relaxation. The dark green packaging reflects its natural essence and eco-friendly values. With an 8-month warranty, PureLeaf guarantees quality and satisfaction, giving you peace of mind with every purchase. Whether you are a seasoned tea enthusiast or someone exploring healthier beverage options, PureLeaf Organic Green Tea is a versatile choice that complements a balanced lifestyle. Enjoy it hot for a comforting drink or chilled as a refreshing iced tea. More than just a beverage, it is a daily ritual that nurtures both body and mind, helping you embrace wellness in every cup."
   },
   {
     "id": 7,
-    "image": "./Product-Image/PixelView-Mini-Projector.png",
+    "image": "/Product-Image/PixelView-Mini-Projector.png",
     "name": "PixelView Mini Projector",
     "category": "Electronics",
     "brand": "PixelView",
@@ -137,11 +143,12 @@
       "portable",
       "HDMI",
       "electronics"
-    ]
+    ],
+    "detail": "The PixelView Mini Projector is a versatile and compact device designed to bring big-screen entertainment and professional presentations to any environment. With HDMI and USB connectivity, it seamlessly integrates with laptops, smartphones, gaming consoles, and streaming devices, offering wide compatibility for both work and leisure. Its lightweight and portable design makes it easy to carry, whether you are hosting a movie night at home, delivering a presentation at the office, or enjoying outdoor entertainment. The projector delivers crisp and vibrant visuals with enhanced brightness and contrast, ensuring clear image quality even in moderately lit rooms. Built-in speakers provide convenient audio output, while the option to connect external speakers allows for an upgraded sound experience. The intuitive interface and simple setup process make it user-friendly, requiring minimal effort to get started. The sleek silver finish adds a modern touch, complementing any setting. Energy-efficient LED technology ensures long lamp life, reducing maintenance costs and providing consistent performance over time. With adjustable focus and keystone correction, the PixelView Mini Projector allows you to customize the viewing experience to suit different screen sizes and angles. Backed by a one-year warranty, it offers reliability and peace of mind. Whether you are a student, professional, or entertainment enthusiast, the PixelView Mini Projector combines portability, functionality, and style, making it an excellent choice for versatile projection needs."
   },
   {
     "id": 8,
-    "image": "./Product-Image/ZenWeave-Cotton-Throw-Blanket.png",
+    "image": "/Product-Image/ZenWeave-Cotton-Throw-Blanket.png",
     "name": "ZenWeave Cotton Throw Blanket",
     "category": "Home & Living",
     "brand": "ZenWeave",
@@ -157,11 +164,12 @@
       "cotton",
       "home",
       "cozy"
-    ]
+    ],
+    "detail": "The ZenWeave Cotton Throw Blanket is a timeless addition to any home, combining comfort, elegance, and practicality in one versatile piece. Crafted from 100% premium cotton, it offers a soft and breathable texture that feels gentle against the skin, making it perfect for year-round use. Its lightweight yet durable weave provides warmth during cooler evenings while remaining airy enough for summer relaxation. The neutral beige tone complements minimalist, modern, and traditional interiors, effortlessly blending with a wide range of décor styles. Designed for cozy evenings on the couch, layering on the bed, or adding a touch of sophistication to your living space, the ZenWeave blanket is both functional and decorative. The fabric is easy to care for, machine washable, and resistant to fading, ensuring long-lasting quality and convenience. Its generous size makes it ideal for snuggling alone or sharing, while the finely finished edges enhance durability and style. Whether draped over a sofa, folded neatly at the foot of a bed, or used outdoors for picnics and gatherings, this blanket adapts to multiple settings with ease. ZenWeave emphasizes sustainable craftsmanship, using eco-friendly materials and processes to deliver a product that is as kind to the environment as it is to your comfort. Backed by a one-year warranty, the ZenWeave Cotton Throw Blanket is more than just a household accessory—it is a cozy companion that enriches everyday living with warmth, simplicity, and understated beauty."
   },
   {
     "id": 9,
-    "image": "./Product-Image/HydroMate-Stainless-Water-Bottle.png",
+    "image": "/Product-Image/HydroMate-Stainless-Water-Bottle.png",
     "name": "HydroMate Stainless Water Bottle",
     "category": "Outdoors",
     "brand": "HydroMate",
@@ -177,11 +185,12 @@
       "stainless",
       "eco",
       "outdoors"
-    ]
+    ],
+    "detail": "The HydroMate Stainless Water Bottle is a durable, eco-friendly hydration solution designed for everyday use and outdoor adventures. Made from premium food-grade stainless steel, it ensures your beverages remain pure and free from harmful chemicals often found in plastic bottles. Its double-wall vacuum insulation technology keeps drinks cold for up to 24 hours and hot for up to 12, making it perfect for long hikes, gym sessions, office days, or travel. The leak-proof design provides peace of mind, allowing you to carry it in bags without worrying about spills. With a sleek matte black finish, the HydroMate bottle combines modern style with practical functionality. The wide-mouth opening makes it easy to fill, pour, and clean, while also accommodating ice cubes for extra refreshment. Lightweight yet sturdy, it is built to withstand rugged conditions, ensuring reliability in both urban and outdoor settings. By choosing HydroMate, you contribute to reducing single-use plastic waste, supporting a more sustainable lifestyle. Its ergonomic design fits comfortably in hand and most cup holders, adding convenience to your daily routine. Backed by a two-year warranty, this bottle guarantees long-lasting performance and customer satisfaction. Whether you are a fitness enthusiast, traveler, or eco-conscious individual, the HydroMate Stainless Water Bottle is more than just a container—it is a trusted companion that keeps you hydrated, healthy, and environmentally responsible."
   },
   {
     "id": 10,
-    "image": "./Product-Image/FlexFit-Resistance-Bands-Set.png",
+    "image": "/Product-Image/FlexFit-Resistance-Bands-Set.png",
     "name": "FlexFit Resistance Bands Set",
     "category": "Fitness",
     "brand": "FlexFit",
@@ -197,6 +206,7 @@
       "bands",
       "workout",
       "home gym"
-    ]
+    ],
+    "detail": "The FlexFit Resistance Bands Set is a versatile and effective training tool designed to support strength building, flexibility, and rehabilitation. This set includes five bands with varying tension levels, allowing users to customize their workouts according to fitness goals and experience levels. Whether you are a beginner starting your fitness journey or an advanced athlete seeking to enhance performance, these bands provide scalable resistance for a wide range of exercises. Made from high-quality, durable latex, they are built to withstand repeated stretching without losing elasticity. Their lightweight and portable design makes them ideal for home gyms, outdoor workouts, or travel, ensuring you can maintain your routine anywhere. Each band is color-coded for easy identification, ranging from light resistance for mobility and rehab exercises to heavy resistance for strength training and muscle building. The FlexFit bands can be used for squats, lunges, chest presses, rows, and targeted muscle activation, offering a full-body workout without the need for bulky equipment. They are also excellent for physical therapy, helping with injury recovery and improving joint stability. Comfortable to grip and easy to integrate into existing routines, these bands promote safe and effective training. Backed by a one-year warranty, the FlexFit Resistance Bands Set combines durability, convenience, and versatility, making it a must-have for fitness enthusiasts, athletes, and anyone looking to stay active and healthy."
   }
 ]

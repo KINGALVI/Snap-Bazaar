@@ -74,7 +74,7 @@ const SnapBazaarCarousel = () => {
                                 }}
                             />
                             <Carousel.Caption>
-
+                                {/* Large devices only */}
                                 <div className="d-none d-lg-flex carousel-caption-center">
                                     <div className="text-center">
                                         <h1 className="pb-3 fw-bold">{slide.title}</h1>
@@ -91,13 +91,28 @@ const SnapBazaarCarousel = () => {
                                     </div>
                                 </div>
 
-                                <div className="d-flex d-lg-none flex-column align-items-center text-center">
+                                {/* Small devices only */}
+                                <div className="d-flex d-md-none flex-column align-items-center text-center">
                                     <h2 className="pt-2 fw-bold" style={{ fontSize: '20.5px' }}>{slide.title}</h2>
                                     <div style={{ fontSize: '10.5px', lineHeight: '1.4' }}>{slide.description}</div>
                                     <Button
                                         variant="outline-light"
                                         className="mt-2 px-2 py-1 fw-semibold shadow-sm mobile-carousel-button"
                                         style={{ fontSize: '13px' }}
+                                        onClick={handleClick}
+                                    >
+                                        {slide.button}
+                                    </Button>
+                                </div>
+
+                                {/* Medium devices only */}
+                                <div className="d-none d-md-flex d-lg-none flex-column align-items-center text-center" style={{marginBottom:"85px"}}>
+                                    <h2 className="fw-bold d-flex align-items-center" style={{ fontSize: '24px' }}>{slide.title}</h2>
+                                    <div style={{ fontSize: '14px', lineHeight: '1.5' }}>{slide.description}</div>
+                                    <Button
+                                        variant="outline-light"
+                                        className="mt-3 px-3 py-2 fw-semibold shadow-sm"
+                                        style={{ fontSize: '15px' }}
                                         onClick={handleClick}
                                     >
                                         {slide.button}

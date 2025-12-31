@@ -4,6 +4,7 @@ import All_Product_Container from '../Product-Section/All-Product-Section/All-Pr
 import About from '../About-Section/About';
 import NotFound from '../404-Section/404-Page';
 import Footer from '../Footer-Section/Footer';
+import ProductDetail from '../Product-Section/Product-Detail/ProductDetail';
 
 const AppRoutes = ({ API }) => {
   return (
@@ -18,12 +19,15 @@ const AppRoutes = ({ API }) => {
             </>
           }
         />
-        <Route
-          path="/cart"
-          element={<All_Product_Container API={API} />}
-        />
+
+        <Route path="/cart" element={<All_Product_Container API={API} />} />
+
         <Route path="/about" element={<About />} />
+
+        <Route path="/Product-Detail/:id" element={<ProductDetail API={API} />} />
+
         <Route path="*" element={<NotFound />} />
+
       </Routes>
 
       <Footer />
