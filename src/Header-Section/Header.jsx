@@ -38,7 +38,7 @@ function Header() {
 
   return (
     <Navbar expand="lg" className="d-flex justify-content-center bg-white shadow-sm sticky-top">
-      <Container>
+      <Container fluid>
 
         {/* Brand */}
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2 logo-hover">
@@ -68,6 +68,20 @@ function Header() {
             </Nav.Link>
           </Nav>
 
+          <InputGroup
+            className="d-none d-lg-flex ms-2 me-3 mt-lg-0 mb-lg-0 mt-3 mb-3"
+            style={{ maxWidth: '250px' }}
+          >
+            <Form.Control
+              type="text"
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+            />
+            <Button variant="outline-success" onClick={handleSearch}>Search</Button>
+          </InputGroup>
+
           {/* Right side buttons */}
           <div className="d-flex align-items-center gap-3">
             {/* Coin box only for large screens inside collapse */}
@@ -90,8 +104,7 @@ function Header() {
 
       </Container>
 
-      {/* Search bar (always visible, outside collapse) */}
-      <InputGroup className="ms-2 me-3 mt-lg-0 mb-lg-0 mt-3 mb-3" style={{ maxWidth: '250px' }}>
+      <InputGroup className="d-flex d-lg-none ms-2 me-3 mt-lg-0 mb-lg-0 mt-3 mb-3" style={{ maxWidth: '250px' }}>
         <Form.Control
           type="text"
           placeholder="Search products..."

@@ -85,7 +85,7 @@ const All_Product_Container = ({ API }) => {
             <>
                 <br />
 
-                <section className="d-flex justify-content-center mb-3 fade-in-bounce">
+                <section className="d-flex justify-content-center mb-3 fade-in-bounce m-2">
                     <span className="pe-2">
                         <Button
                             variant={activeSection === "available" ? "primary" : "outline-primary"}
