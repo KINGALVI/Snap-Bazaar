@@ -93,12 +93,12 @@ const SnapBazaarCarousel = () => {
 
                                 {/* Small devices only */}
                                 <div className="d-flex d-md-none flex-column align-items-center text-center">
-                                    <h2 className="pt-2 fw-bold" style={{ fontSize: '20.5px' }}>{slide.title}</h2>
-                                    <div style={{ fontSize: '10.5px', lineHeight: '1.4' }}>{slide.description}</div>
+                                    <h2 className="fw-bold" style={{ fontSize: '16px' }}>{slide.title}</h2>
+                                    <div style={{ fontSize: '10.5px', lineHeight: '13px' }}>{slide.description}</div>
                                     <Button
                                         variant="outline-light"
-                                        className="mt-2 px-2 py-1 fw-semibold shadow-sm mobile-carousel-button"
-                                        style={{ fontSize: '13px' }}
+                                        className="mt-1 px-2 py-1 fw-semibold shadow-sm mobile-carousel-button"
+                                        style={{ fontSize: '10px' }}
                                         onClick={handleClick}
                                     >
                                         {slide.button}
@@ -106,7 +106,7 @@ const SnapBazaarCarousel = () => {
                                 </div>
 
                                 {/* Medium devices only */}
-                                <div className="d-none d-md-flex d-lg-none flex-column align-items-center text-center" style={{marginBottom:"85px"}}>
+                                <div className="d-none d-md-flex d-lg-none flex-column align-items-center text-center" style={{ marginBottom: "85px" }}>
                                     <h2 className="fw-bold d-flex align-items-center" style={{ fontSize: '24px' }}>{slide.title}</h2>
                                     <div style={{ fontSize: '14px', lineHeight: '1.5' }}>{slide.description}</div>
                                     <Button
