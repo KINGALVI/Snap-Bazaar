@@ -40,6 +40,7 @@ function Header() {
     <Navbar expand="lg" className="d-flex justify-content-center bg-white shadow-sm sticky-top">
       <Container>
 
+        {/* Brand */}
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2 logo-hover">
           <Image
             src={TopLogo}
@@ -50,12 +51,10 @@ function Header() {
           <span className="fw-bold fs-4 text-primary">Snap Bazaar</span>
         </Navbar.Brand>
 
-        <div className={`d-block d-md-none fs-6 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
-          ${Dollar.toFixed(2)} <FaDollarSign size={18} color="green" />
-        </div>
-
+        {/* Toggle */}
         <Navbar.Toggle aria-controls="navbarScroll" />
 
+        {/* Collapse (only for nav links + login/logout) */}
         <Navbar.Collapse id="navbarScroll">
           <Nav className="mx-auto my-2 my-lg-0 nav-links" style={{ maxHeight: '100px' }} navbarScroll>
             <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'nav-active' : ''}>
@@ -69,18 +68,16 @@ function Header() {
             </Nav.Link>
           </Nav>
 
+          {/* Right side buttons */}
           <div className="d-flex align-items-center gap-3">
-            <div className={`d-none d-md-flex fs-5 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
+            {/* Coin box only for large screens inside collapse */}
+            <div className={`d-none d-lg-flex fs-5 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
               ${Dollar.toFixed(0)} <FaDollarSign size={24} color="green" />
             </div>
             {isLoggedIn ? (
-              <Button variant="outline-danger" onClick={handleLogout}>
-                Logout
-              </Button>
+              <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
             ) : (
-              <Button variant="outline-primary" onClick={() => setShowLoginModal(true)}>
-                Login
-              </Button>
+              <Button variant="outline-primary" onClick={() => setShowLoginModal(true)}>Login</Button>
             )}
           </div>
 
@@ -92,7 +89,9 @@ function Header() {
         </Navbar.Collapse>
 
       </Container>
-      <InputGroup className="me-3 mt-lg-0 mb-lg-0 mt-3 mb-3" style={{ maxWidth: '250px' }}>
+
+      {/* Search bar (always visible, outside collapse) */}
+      <InputGroup className="ms-2 me-3 mt-lg-0 mb-lg-0 mt-3 mb-3" style={{ maxWidth: '250px' }}>
         <Form.Control
           type="text"
           placeholder="Search products..."
@@ -102,6 +101,12 @@ function Header() {
         />
         <Button variant="outline-success" onClick={handleSearch}>Search</Button>
       </InputGroup>
+
+      {/* Coin box outside collapse for small & medium */}
+      <div className={`d-flex d-lg-none align-items-center fs-6 dollar-box ${dollarPulse ? 'coin-pulse' : ''}`}>
+        ${Dollar.toFixed(2)} <FaDollarSign size={18} color="green" />
+      </div>
+
     </Navbar>
   );
 }
